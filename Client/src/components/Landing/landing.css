@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+}
+.btn{
+    font-size:30px;
+    position: relative;
+    top:300px;
+}
+img{
+    width: 100%;
+    height: 100vh;
+}

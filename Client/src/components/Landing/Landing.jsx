@@ -1,10 +1,13 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 import "./landing.css"
 function Landing() {
     return (
-        <div>
-        <button type="button" class="btn btn-dark btn-lg">Start</button>
+        <div className="btn-entorn">
+            <Link to="/home">
+                <span className="btn btn-dark btn-lg">Start</span>
+            </Link>
         </div>
     )
 }
