@@ -61,10 +61,10 @@ export function getProductId(id) {
   };
 }
 
-export function getProductQuery(name) {
+export function getProductQuery(model) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`http://localhost:3001/product?name=${name}`);
+      let json = await axios.get(`http://localhost:3001/product?name=${model}`);
       dispatch({
         type: GET_PRODUCT_BY_QUERY,
         payload: json.data,
