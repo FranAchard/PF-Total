@@ -4,18 +4,20 @@ const  Product = require('../models/product');
 //const Brand = require('../models/brand');
 
 router.post('/', async(req, res) => {
-    const { marca, model, price, color, ram, camera, image, brand,stock } = req.body;
+    const { marca, model, price, color, ram, camera, image, condition, os, stock } = req.body;
     
     try{
         let createProduct = await Product.create({
             marca,
-            model, 
+            model,
+            condition, 
             price, 
             color, 
             ram, 
             image, 
             camera, 
-            stock
+            stock, 
+            os
         })
 
         // let brandDB = await Brand.create({

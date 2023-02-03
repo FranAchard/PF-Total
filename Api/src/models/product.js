@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, ENUM } = require("sequelize");
 
 const sequelize = require("../db");
 
@@ -9,6 +9,10 @@ const product = sequelize.define("product", {
     allowNull: false
   },
   model: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  condition:{
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -29,8 +33,8 @@ const product = sequelize.define("product", {
     allowNull: false
   },
   os: {
-    type: DataTypes.STRING,
-    //allowNull: false
+    type: DataTypes.ENUM('Android', 'IOS'),
+    allowNull: false
 
   },
   stock: {

@@ -16,6 +16,7 @@ const getProducts = async()=>{
             marca: e.attributes[0].value_name,
             price: e.price,
             stock: e.available_quantity,
+            condition: e.condition,
             image : e.thumbnail,
             os : "Android"
             
@@ -32,6 +33,7 @@ const getProducts = async()=>{
         marca: e.attributes[0].value_name,
         price: e.price,
         stock: e.available_quantity,
+        condition: e.condition,
         image : e.thumbnail,
         os : "Android"
     }
@@ -47,6 +49,7 @@ const getProducts = async()=>{
         marca: e.attributes[0].value_name,
         price: e.price,
         stock: e.available_quantity,
+        condition: e.condition,
         image : e.thumbnail,
         os : "Android"
     }
@@ -62,6 +65,7 @@ const getProducts = async()=>{
         marca: e.attributes[0].value_name,
         price: e.price,
         stock: e.available_quantity,
+        condition: e.condition,
         image : e.thumbnail,
         os : "IOS"
     }
