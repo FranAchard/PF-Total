@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 import "./landing.css"
 import {Link} from "react-router-dom"
 import video from "../../Media/MÃ³vil - 29326.mp4"
@@ -30,6 +31,5 @@ function Landing() {
      
  </div>
  </header>
-    )
 }
 export default Landing;
