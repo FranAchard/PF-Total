@@ -8,6 +8,7 @@ const chargeDB = async()=>{
         where:{
             marca: e.marca,
             model: e.model,
+            condition: e.condition,
             price: e.price,
             stock: e.stock,
             ram: e.ram,

@@ -1,26 +1,41 @@
-const { Router } = require ('express');
-const router = Router();
-router.use(express.json())
+
 const  User = require('../models/user.js');
 
-router.post('/', async(req, res) => {
+const createUser = async(req, res) => {
     const { name, isAdmin, email, password } = req.body;
-    console.log(name)
-    try{
-        let createUser = await User.create({
-            name,
-            isAdmin,
-            email,
-            password
-        })
-        console.log(createUser)
-        
+    const userNameValidation = await User.findOne({
+        where: {
+            name: name
+        }
+    })
+    const emailValidation = await User.findOne({
+        where: {
+            email: email
+        }
+    })
 
-        
-        res.status(200).send('User created successfully')
+    if(userNameValidation){
+        return res.send(`${name} is not available for user name`)
+    } 
+    else if(emailValidation){
+        return res.send(`${email} is already registered`)
     }
-    catch(err){
-        console.log(err);
-        res.status(400).send('Error creating user.')
+    else {
+        try{
+            let createUser = await User.create({
+                name,
+                isAdmin,
+                email,
+                password
+            })
+    
+            res.status(200).send(`User ${name} created successfully`)
+        }
+        catch(err){
+            console.log(err);
+            res.status(400).send('Error creating user.')
+        }
     }
-});
+    
+};
+module.exports = createUser;
