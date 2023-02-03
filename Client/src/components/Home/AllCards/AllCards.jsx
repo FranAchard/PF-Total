@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Card from "../card/Card";
-import { getAllProducts } from "../../../redux/actions";
+import Card from "../Card/Card";
+import { getAllProducts } from "../../../Redux/actions";
 import { Link } from "react-router-dom";
 import "./allCards.css";
 import { Pages } from "../Pages/Pages";

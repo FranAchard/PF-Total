@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductId } from "../../redux/actions";
+import { getProductId } from "../../Redux/actions";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
