@@ -9,8 +9,13 @@ const getProductById = async (req, res) => {
                 id: id
             }
         });
+        if(product){
+            res.status(200).send(product)
+        }else{
+            res.status(404).send('No existe el producto solicitado')
+        }
         
-        res.status(200).send(product)
+        
     } catch (error) {
         res.status(400).send({error: error.message})
     }
