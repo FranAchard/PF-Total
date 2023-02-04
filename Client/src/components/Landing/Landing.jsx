@@ -1,8 +1,8 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
-import "./landing.css"
-import video from "../../Media/MÃ³vil - 29326.mp4"
+import "./landing.css";
+import video from "../../Media/MÃ³vil - 29326.mp4";
 
 function Landing() {
     return (
@@ -27,7 +27,7 @@ function Landing() {
                     </div>
      
                 </div>
-     
+
             </div>
         </header>
     )

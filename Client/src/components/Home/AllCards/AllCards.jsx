@@ -8,17 +8,20 @@ import Pages from "../../Home/Pages/Pages.jsx";
 
 export default function AllCards() {
   const dispatch = useDispatch();
-  let allProducts = useSelector((state) => state.product);
 
+  let allProducts = useSelector((state) => state.allProducts);
+  console.log(allProducts)
+  
   const filteredProduct = useSelector((state) => state.filter);
 
-  // filteredProduct.length > 0 && (allProducts = filteredProduct);
+  //filteredProduct.length > 0 && (allProducts = filteredProduct);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(8);
+  const [productPerPage] = useState(12);
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
   const currentProduct = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+ 
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -29,40 +32,39 @@ export default function AllCards() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  const handleBack = () => {
-    currentPage > 1 && (setCurrentPage(currentPage - 1))
-  }
-
-  
-  const handleNext = () => {
-    setCurrentPage(currentPage + 1)
-  }
-
   return (
     <>
-      <button className="productButton" onClick={handleBack}>Back</button>
-      <button className="productButton" onClick={handleNext}>Next</button>
+  
       <Pages
         productPerPage={productPerPage}
-        allProducts={allProducts.length}
+        allProduct={allProducts.length}
         paginate={paginate} 
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
-
-      <div >
+    
+      <div className="container pb-5 mb-sm-1 text-center">
+      <div className="row"> 
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         {allProducts.length > 0 ? (
           currentProduct.map((e) => (
             <Link key={e.id} to={`/product/${e.id}`}>
+              <div class="col-6 col-md-4">
               <Card
                 id={e.id}
+                model={e.model}
                 marca={e.marca}
                 price={e.price}
                 image={e.image}
               />
+              </div>
             </Link>
           ))
         ) : (
           <h2>No hay nada</h2>
         )}
+        </div>
+        </div>
       </div>
     </>
   );

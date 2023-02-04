@@ -10,7 +10,8 @@ import {
 } from "./actions";
 
 const initialState = {
-  products: [],
+  product: [],
+  allProducts:[],
   users: [],
   detail: [],
   error: [],
@@ -27,7 +28,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_ALL_PRODUCTS:
       return {
         ...state,
-        products: action.payload,
+        allProducts: action.payload,
       };
 
     case GET_PRODUCT_ID:
@@ -39,7 +40,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_PRODUCT_BY_QUERY:
       return {
         ...state,
-        products: action.payload,
+        product: action.payload,
       };
 
     case GET_USERS:
