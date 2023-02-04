@@ -6,11 +6,11 @@ import "./home.css";
 import { Footer } from "./Footer/Footer";
 
 
-export const Home = () => {
+export const Home = ({setCurrentPage}) => {
   return (
     <div>
       <Navbar />
-      <Filters />
+      
       <AllCards />
 
       <Footer/>

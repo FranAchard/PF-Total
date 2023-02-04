@@ -8,6 +8,11 @@ export const GET_PRODUCT_BY_QUERY = "GET_PRODUCT_BY_QUERY";
 export const FILTER_BY_USER = "FILTER_BY_USER";
 export const ORDER_PRODUCT_ALF = "ORDER_PRODUCT_ALF";
 export const POST_PRODUCTS = "POST_PRODUCTS";
+export const ORDER_PRICE = "ORDER_PRICE"
+
+/////momentaneo//////
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const ORDER_MARCA = "ORDER_MARCA";
 
 export const getAllProducts = () => {
   return async (dispatch) => {
@@ -97,11 +102,31 @@ export function filterByUser(payload) {
   };
 }
 
-export const orderProductAlf = (payload) => {
-  return {
-    type: ORDER_PRODUCT_ALF,
-    payload,
-  };
-};
+// export const orderProductAlf = (payload) => {
+
+//   return async (dispatch) => {
+    
+//   }
+// };
 
 
+export function orderByName(payload){
+  return{
+      type: ORDER_BY_NAME,
+      payload
+  }
+}
+
+export function orderMarca(payload){
+  return{
+    type: ORDER_MARCA,
+    payload
+  }
+}
+
+export function orderPrice(payload){
+  return{
+    type: ORDER_PRICE,
+    payload
+  }
+}
