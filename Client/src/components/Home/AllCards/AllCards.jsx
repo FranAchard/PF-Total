@@ -5,14 +5,15 @@ import { getAllProducts } from "../../../Redux/actions";
 import { Link } from "react-router-dom";
 import "./allCards.css";
 import Pages from "../../Home/Pages/Pages.jsx";
+import Filters from "../../Filters/Filters";
 
 export default function AllCards() {
   const dispatch = useDispatch();
 
-  let allProducts = useSelector((state) => state.allProducts);
+  let allProducts = useSelector((state) => state.product);
   console.log(allProducts)
   
-  const filteredProduct = useSelector((state) => state.filter);
+  //const filteredProduct = useSelector((state) => state.filter);
 
   //filteredProduct.length > 0 && (allProducts = filteredProduct);
 
@@ -27,14 +28,14 @@ export default function AllCards() {
     setCurrentPage(pageNumber);
   };
 
-
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
 
   return (
     <>
-  
+      <Filters />
+
       <Pages
         productPerPage={productPerPage}
         allProduct={allProducts.length}
