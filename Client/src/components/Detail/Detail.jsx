@@ -4,7 +4,7 @@ import { getProductId } from "../../Redux/actions";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import accounting from "accounting"
+
 
 
 export const DetailProduct = () => {
@@ -42,10 +42,10 @@ export const DetailProduct = () => {
             {" "}
             Modelo: <br /> {myProduct.model}
           </h3>
-          <h3 className="texts">
+          {/* <h3 className="texts">
             {" "}
             Price: <br /> {accounting.formatMoney(myProduct.price)}
-          </h3>
+          </h3> */}
           <h3 className="texts">
             {" "}
             Camera: <br /> {myProduct.camera}

@@ -40,7 +40,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_PRODUCT_BY_QUERY:
       return {
         ...state,
-        products: action.payload,
+        product: action.payload,
       };
 
     case GET_USERS:

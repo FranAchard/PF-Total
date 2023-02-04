@@ -73,6 +73,7 @@ const getProducts = async()=>{
    const allCellphones = [...cellphonesMotorola,...cellphonesSamsung,...cellphonesHuawei,...cellphonesIphone];
 
    return allCellphones;
+   
 }
 
 module.exports= getProducts;

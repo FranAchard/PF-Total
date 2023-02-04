@@ -19,7 +19,7 @@ export default function Navbar(){
     }
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(getProductQuery(name));
+        dispatch(getProductQuery(model));
         setName("") // para dejarlo vacio despues de la busqueda 
     }
     return(
@@ -40,7 +40,10 @@ export default function Navbar(){
 
        <form className="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">
         <div className="busca">
-          <input className="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search"  onChange={(e) => handleInputName(e)}/>
+          <input className="form-control me-2 w-75" 
+          type="search" placeholder="Search" 
+          aria-label="Search"  
+          onChange={(e) => handleInputName(e)}/>
           <div
                 type="submit" 
                 onClick={(e)=> handleSubmit(e)}

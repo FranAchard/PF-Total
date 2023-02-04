@@ -12,10 +12,9 @@ export const Home = () => {
       <Navbar />
       <Filters />
       <AllCards />
-<<<<<<< HEAD
+
       <Footer/>
-=======
->>>>>>> 79f9467e8265f32d846dd008a3aff21f515cd655
+
     </div>
   );
 };

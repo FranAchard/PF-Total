@@ -9,6 +9,7 @@ let orderProductByBrand = require('../Controllers/orderProductByBrand')
 let orderByPrice = require("../Controllers/orderProductByPrice")
 
 router.get('/',  getProductDB)
+router.get('/',  getProducts)
 router.get('/:id', getProductById)
 router.post('/', postProduct)
 router.patch('/',simpleResponse)
