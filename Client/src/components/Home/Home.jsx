@@ -1,9 +1,9 @@
 import React from "react";
-// import { NavBar } from "../navBar/NavBar";
 import AllCards from "../Home/AllCards/AllCards";
 import Navbar from "../NavBar/NavBar.jsx";
 import Filters from "../Filters/Filters.jsx"
 import "./home.css";
+import { Footer } from "./Footer/Footer";
 
 
 export const Home = () => {
@@ -11,7 +11,8 @@ export const Home = () => {
     <div>
       <Navbar />
       <Filters />
-      {/* <AllCards /> */}
+      <AllCards />
+      <Footer/>
     </div>
   );
 };
