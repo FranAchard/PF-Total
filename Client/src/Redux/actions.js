@@ -13,7 +13,10 @@ export const getAllProducts = () => {
   return async (dispatch) => {
     try {
       let response = await axios.get(`http://localhost:3001/product`);
+<<<<<<< HEAD
       console.log(response)
+=======
+>>>>>>> 79f9467e8265f32d846dd008a3aff21f515cd655
       dispatch({
         type: GET_ALL_PRODUCTS,
         payload: response.data,
@@ -49,7 +52,7 @@ export const getUsers = () => {
 export function getProductId(id) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`http:${id}`);
+      let json = await axios.get(`http://localhost:3001/product/${id}`);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: json.data,
@@ -104,3 +107,5 @@ export const orderProductAlf = (payload) => {
     payload,
   };
 };
+
+

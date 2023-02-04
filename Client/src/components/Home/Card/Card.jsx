@@ -1,8 +1,10 @@
 import React from "react";
 import "./card.css";
+import accounting from "accounting"
 
 export const Card = ({ marca, image, price, model}) => {
   return (
+<<<<<<< HEAD
     <div >
       <div > 
         <div >
@@ -20,6 +22,14 @@ export const Card = ({ marca, image, price, model}) => {
             </div>
         </div>
       </div>  
+=======
+    <div>
+            
+      <img src={image} alt= "img not found" width="200 px" height="250px"/>
+      <h3>{marca} </h3>
+      <h3>{accounting.formatMoney(price)}</h3>
+       
+>>>>>>> 79f9467e8265f32d846dd008a3aff21f515cd655
     </div>
    
   );

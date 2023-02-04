@@ -6,9 +6,10 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const indexRouter = require('./routes/index');
-
+const cors = require('cors');
 const app = express();
 
+app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(logger('dev'));

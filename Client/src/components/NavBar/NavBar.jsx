@@ -24,38 +24,38 @@ export default function Navbar(){
     }
     return(
       
-      <section class="navbar navbar-expand-lg" id="navbar1">
+      <section className="navbar navbar-expand-lg" id="navbar1">
 
-      <div class="col-md-2" >
+      <div className="col-md-2" >
         <a href="/">LOGO</a>
       </div>
         
-      <button class="navbar-toggler d-lg-none" id="main">
-      <span class="navbar-toggler-icon">
+      <button className="navbar-toggler d-lg-none" id="main">
+      <span className="navbar-toggler-icon">
         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <ion-icon name="menu-outline"></ion-icon>
         </a>
       </span>
       </button>
 
-       <form class="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">
-        <div class="busca">
-          <input class="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search"  onChange={(e) => handleInputName(e)}/>
+       <form className="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">
+        <div className="busca">
+          <input className="form-control me-2 w-75" type="search" placeholder="Search" aria-label="Search"  onChange={(e) => handleInputName(e)}/>
           <div
                 type="submit" 
                 onClick={(e)=> handleSubmit(e)}
-                ><i class="bi bi-search" id="formbusca"></i></div>
+                ><i className="bi bi-search" id="formbusca"></i></div>
         </div>
       </form>
 
-      <div class="col-md-3">
-        <div class="d-flex d-md-flex flex-row align-items-center">
+      <div className="col-md-3">
+        <div className="d-flex d-md-flex flex-row align-items-center">
           
-          <div class="col-md-3" id="iconsperson" onclick="redirectBtnlogin()">
-            <span class="shop-bag">
+          <div className="col-md-3" id="iconsperson" onClick="redirectBtnlogin()">
+            <span className="shop-bag">
               
             </span>
-            <div class="text-icon">
+            <div className="text-icon">
               LOGIN
             </div>
 
@@ -63,10 +63,10 @@ export default function Navbar(){
 
           </div>
 
-          <div class="col-md-3" id="iconscart" onclick="redirectIconCheckout()">
-            <span class="shop-bag" >
+          <div className="col-md-3" id="iconscart" onClick="redirectIconCheckout()">
+            <span className="shop-bag" >
               
-                <div class="text-icon">
+                <div className="text-icon">
                   CARRY
                 </div>
             </span>

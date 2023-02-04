@@ -8,18 +8,23 @@ import Pages from "../../Home/Pages/Pages.jsx";
 
 export default function AllCards() {
   const dispatch = useDispatch();
+<<<<<<< HEAD
   let allProducts = useSelector((state) => state.allProducts);
   console.log(allProducts);
 // PAGINADO //
+=======
+  let allProducts = useSelector((state) => state.products);
+>>>>>>> 79f9467e8265f32d846dd008a3aff21f515cd655
   const filteredProduct = useSelector((state) => state.filter);
 
-  // filteredProduct.length > 0 && (allProducts = filteredProduct);
+  //filteredProduct.length > 0 && (allProducts = filteredProduct);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(12);
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
   const currentProduct = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+ 
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);

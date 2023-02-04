@@ -4,21 +4,24 @@ import { getProductId } from "../../Redux/actions";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import accounting from "accounting"
+
 
 export const DetailProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const productArr = useSelector((state) => state.detail);
+  const product = useSelector((state) => state.detail);
 
   useEffect(() => {
     dispatch(getProductId(id));
   }, [dispatch, id]);
 
-  if (productArr.length < 1) {
+  if (!product) {
     return <div>"LOADING"</div>;
   }
 
-  const myProduct = productArr[0];
+  const myProduct = product;
+  
 
   return (
     <div key={myProduct.id} className="detailContainer">
@@ -33,7 +36,7 @@ export const DetailProduct = () => {
           <h2 className="texts">{myProduct.name}</h2>
           <h3 className="texts">
             {" "}
-            Marca: <br /> From {myProduct.marca}
+            Marca: <br /> {myProduct.marca}
           </h3>
           <h3 className="texts">
             {" "}
@@ -41,11 +44,11 @@ export const DetailProduct = () => {
           </h3>
           <h3 className="texts">
             {" "}
-            Price: <br /> From {myProduct.price}
+            Price: <br /> {accounting.formatMoney(myProduct.price)}
           </h3>
           <h3 className="texts">
             {" "}
-            Camera: <br /> From {myProduct.camera}
+            Camera: <br /> {myProduct.camera}
           </h3>
           <h3 className="texts">
             {" "}
