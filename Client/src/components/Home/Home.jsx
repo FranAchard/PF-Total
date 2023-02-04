@@ -11,7 +11,7 @@ export const Home = () => {
     <div>
       <Navbar />
       <Filters />
-      {/* <AllCards /> */}
+      <AllCards />
     </div>
   );
 };

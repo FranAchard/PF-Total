@@ -8,17 +8,17 @@ import Pages from "../../Home/Pages/Pages.jsx";
 
 export default function AllCards() {
   const dispatch = useDispatch();
-  let allProducts = useSelector((state) => state.product);
-
+  let allProducts = useSelector((state) => state.products);
   const filteredProduct = useSelector((state) => state.filter);
 
-  // filteredProduct.length > 0 && (allProducts = filteredProduct);
+  //filteredProduct.length > 0 && (allProducts = filteredProduct);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(8);
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
   const currentProduct = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+ 
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);

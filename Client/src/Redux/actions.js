@@ -12,7 +12,7 @@ export const POST_PRODUCTS = "POST_PRODUCTS";
 export const getAllProducts = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost3001/product`);
+      let response = await axios.get(`http://localhost:3001/product`);
       dispatch({
         type: GET_ALL_PRODUCTS,
         payload: response.data,
@@ -29,7 +29,7 @@ export const getAllProducts = () => {
 export const getUsers = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost3001/user`);
+      let response = await axios.get(`http://localhost:3001/user`);
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USERS,
@@ -47,7 +47,7 @@ export const getUsers = () => {
 export function getProductId(id) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`http:${id}`);
+      let json = await axios.get(`http://localhost:3001/product/${id}`);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: json.data,
@@ -102,3 +102,5 @@ export const orderProductAlf = (payload) => {
     payload,
   };
 };
+
+

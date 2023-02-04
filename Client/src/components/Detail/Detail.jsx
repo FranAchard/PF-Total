@@ -8,17 +8,17 @@ import { Link } from "react-router-dom";
 export const DetailProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const productArr = useSelector((state) => state.detail);
+  const product = useSelector((state) => state.detail);
 
   useEffect(() => {
     dispatch(getProductId(id));
   }, [dispatch, id]);
 
-  if (productArr.length < 1) {
+  if (!product) {
     return <div>"LOADING"</div>;
   }
 
-  const myProduct = productArr[0];
+  const myProduct = product;
 
   return (
     <div key={myProduct.id} className="detailContainer">

@@ -28,7 +28,7 @@ function handleSort(e){
    
     return(
        <div>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark"> 
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark"> 
        
 
         <select onChange={e => handleSort(e)} >
