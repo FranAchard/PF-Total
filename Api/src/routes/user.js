@@ -5,7 +5,7 @@ let createUser = require("../Controllers/postUser.js")
 let getUser = require("../Controllers/getUser.js")
 
 router.get("/:id", getUser);
-router.post("/", createUser);
+router.post("/signup", createUser);
 router.patch("/", simpleResponse);
 
 module.exports = router;
