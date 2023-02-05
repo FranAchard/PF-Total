@@ -11,11 +11,8 @@ export default function AllCards() {
   const dispatch = useDispatch();
 
   let allProducts = useSelector((state) => state.product);
-  console.log(allProducts)
-  
-  //const filteredProduct = useSelector((state) => state.filter);
-
-  //filteredProduct.length > 0 && (allProducts = filteredProduct);
+  const filterProducts = useSelector((state) => state.filteredProducts);
+  filterProducts.length > 0 && (allProducts = filterProducts);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(12);

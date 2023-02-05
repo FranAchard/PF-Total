@@ -44,7 +44,7 @@ export default function Filters (){
        
 
         <select onChange={e => handleSort(e)} >
-                <option value="all" >All</option>
+                <option hidden={true} value="all" >Order</option>
                 <option value="asc" >A-Z</option>
                 <option value="desc">Z-A</option>
         </select>
