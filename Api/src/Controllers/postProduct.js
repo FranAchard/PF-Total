@@ -3,9 +3,9 @@ const router = Router();
 const  Product = require('../models/product');
 //const Brand = require('../models/brand');
 
-router.post('/', async(req, res) => {
+const addProduct = async(req, res) => {
     const { marca, model, price, color, ram, camera, image, condition, os, stock } = req.body;
-    
+    console.log('llamo a la funcion')
     try{
         let createProduct = await Product.create({
             marca,
@@ -32,6 +32,6 @@ router.post('/', async(req, res) => {
         console.log(err);
         res.status(400).send('Error creating the product.')
     }
-});
+};
 
-module.exports = router;
+module.exports = addProduct;
