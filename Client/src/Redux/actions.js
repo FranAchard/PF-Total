@@ -87,7 +87,7 @@ export function getProductQuery(model) {
 export const postProduct = (payload) => {
   return async () => {
     try {
-      let json = await axios.post(``, payload);
+      let json = await axios.post(`http://localhost:3001/product/add`, payload);
       return json;
     } catch (error) {
       console.log(error);
