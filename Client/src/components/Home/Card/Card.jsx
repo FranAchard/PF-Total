@@ -1,4 +1,5 @@
 import React from "react";
+import accounting from 'accounting-js'
 
 
 
@@ -12,7 +13,7 @@ const Card = ({ marca, image, price, model}) => {
       </a>
       <div class="card-body border mt-n1 py-4 text-center">
           <h2 class="h5 mb-1">{model}</h2>
-          <span class="d-block mb-3 font-size-xs text-muted">Starting from <span class="font-weight-semibold">{price}</span>
+          <span class="d-block mb-3 font-size-xs text-muted">Starting from <span class="font-weight-semibold">{accounting.formatMoney(price)}</span>
           </span><a class="btn btn-pill btn-outline-primary btn-sm" href="shop-style1-ls.html">Shop clothing</a>
       </div>
     </div>
