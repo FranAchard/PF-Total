@@ -5,7 +5,6 @@ import {
   GET_PRODUCT_BY_QUERY,
   GET_PRODUCT_ID,
   FILTER_BY_USER,
-  ORDER_PRODUCT_ALF,
   POST_PRODUCTS,
   ORDER_BY_NAME,
   ORDER_MARCA,
@@ -14,7 +13,6 @@ import {
 
 const initialState = {
   product: [],
-  allProducts:[],
   users: [],
   detail: [],
   error: [],
@@ -32,7 +30,6 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         product: action.payload,
-        allProducts: action.payload,
       };
 
     case GET_PRODUCT_ID:
@@ -58,89 +55,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       };
 
-    // case ORDER_PRODUCT_ALF:
-    //   let sortedAlf;
-    //   if (action.payload === "alf") {
-    //     if (state.filteredProducts.length > 0) {
-    //       sortedAlf = [...state.filteredProducts].sort(function (a, b) {
-    //         if (a.name === null) {
-    //           return 0;
-    //         }
-    //         if (a.name > b.name) {
-    //           return 1;
-    //         }
-    //         if (b.name > a.name) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       });
-    //       return {
-    //         ...state,
-    //         filteredProducts: sortedAlf,
-    //       };
-    //     } else {
-    //       sortedAlf = [...state.products].sort(function (a, b) {
-    //         if (a.name === null) {
-    //           return 0;
-    //         }
-    //         if (a.name > b.name) {
-    //           return 1;
-    //         }
-    //         if (b.name > a.name) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       });
-    //       return {
-    //         ...state,
-    //         products: sortedAlf,
-    //       };
-    //     }
-    //   } else if (action.payload === "pop") {
-    //     if (state.filteredProducts.length > 0) {
-    //       sortedAlf = [...state.filteredProducts].sort(function (a, b) {
-    //         if (b.name === null) {
-    //           return 0;
-    //         }
-    //         if (a.name < b.name) {
-    //           return 1;
-    //         }
-    //         if (b.name < a.name) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       });
-    //       return {
-    //         ...state,
-    //         filteredProducts: sortedAlf,
-    //       };
-    //     } else if (action.payload === "pop") {
-    //       sortedAlf = [...state.products].sort(function (a, b) {
-    //         if (b.name === null) {
-    //           return 0;
-    //         }
-    //         if (a.name < b.name) {
-    //           return 1;
-    //         }
-    //         if (b.name < a.name) {
-    //           return -1;
-    //         }
-    //         return 0;
-    //       });
-    //       return {
-    //         ...state,
-    //         products: sortedAlf,
-    //       };
-    //     }
-    //   } else {
-    //     return {
-    //       ...state,
-    //       products: state.products,
-    //     };
-    //   }
-    //   break;
-
-      ///moment///
+    
       case ORDER_BY_NAME:
         let allProducts =[...state.product]
         let sortedArr = action.payload === "asc" ?
@@ -164,7 +79,7 @@ const rootReducer = (state = initialState, action) => {
             })
         return {
             ...state,
-            product: sortedArr
+            filteredProducts: sortedArr
         }
 
       case ORDER_PRICE:
@@ -190,26 +105,26 @@ const rootReducer = (state = initialState, action) => {
             })
         return {
             ...state,
-            product: sortedArr1
+            filteredProducts: sortedArr1
         }
       case ORDER_MARCA:
-        const allProducts2 = state.allProducts;
+        const allProducts2 = state.product;
             const productFiltered = action.payload === 'All' ? 
             allProducts2 : 
             allProducts2.filter(c => c.marca === action.payload)
             
             return {
               ...state,
-              product: productFiltered
+              filteredProducts: productFiltered
             }; 
       case FILTER_BY_USER:
-      const allProduct2 = state.products;
-      let filteredUser = state.products;
+      const allProduct2 = state.product;
+      let filteredUser = state.product;
 
       if (action.payload === "AllUser") {
         return {
           ...state,
-          products: state.products,
+          product: state.product,
           filteredProducts: [],
         };
       } else {
