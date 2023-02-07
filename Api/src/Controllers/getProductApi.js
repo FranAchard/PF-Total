@@ -123,7 +123,7 @@ const getProducts = async () => {
     
 
 
-    let colors = ["black", "white", "green", "gold", "red", "blue"];
+    let colors = ["black", "white", "green", "gold", "red", "blue", "pink"];
     let ram = ["4GB", "8GB", "16GB"];
     let camera = ["16MP", "32MP", "64MP"];
 
