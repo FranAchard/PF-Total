@@ -147,7 +147,7 @@ const getProducts = async () => {
             marca: e.attributes[0].value_name,
             price: e.price,
             stock: e.available_quantity,
-            condition: e.condition,
+            condition: e.condition.toLowerCase(),
             image: image,//"https://http2.mlstatic.com/D_NQ_NP_854793-MLA50262132804_062022-O.webp",//e.thumbnail,
             os: "Android"
         }
@@ -176,7 +176,7 @@ const getProducts = async () => {
             marca: e.attributes[0].value_name,
             price: e.price,
             stock: e.available_quantity,
-            condition: e.condition,
+            condition: e.condition.toLowerCase(),
             image: image,
             os: "Android"
         }
@@ -202,7 +202,7 @@ const getProducts = async () => {
             marca: e.attributes[0].value_name,
             price: e.price,
             stock: e.available_quantity,
-            condition: e.condition,
+            condition: e.condition.toLowerCase(),
             image: image,
             os: "Android"
         }
@@ -228,7 +228,7 @@ const getProducts = async () => {
             marca: e.attributes[0].value_name,
             price: e.price,
             stock: e.available_quantity,
-            condition: e.condition,
+            condition: e.condition.toLowerCase(),
             image: image,
             os: "IOS"
         }
