@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./allCards.css";
 import Pages from "../../Home/Pages/Pages.jsx";
 import Filters from "../../Filters/Filters";
+import axios from "axios";
 
 export default function AllCards() {
   const dispatch = useDispatch();
@@ -48,8 +49,8 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <Link key={e.id} to={`/product/${e.id}`}>
-                  <div>
+                <>
+                  <Link key={e.id} to={`/product/${e.id}`}>
                     <Card
                       id={e.id}
                       model={e.model}
@@ -57,8 +58,10 @@ export default function AllCards() {
                       price={e.price}
                       image={e.image}
                     />
-                  </div>
-                </Link>
+                  </Link>
+
+                  <button onClick={() => { axios.post('http://localhost:3001/payment', {"product":{e},"quantity":2}).then((res)=>window.location.href = res.data.response.body.init_point )}}> Buy </button>
+                </>
               ))
             ) : (
               <h2>No hay nada</h2>
