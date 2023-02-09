@@ -33,11 +33,10 @@ export default function AllCards() {
   }, [dispatch]);
 
   const handlePayment = (e) => {
-   
     axios
       .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         window.location.href = res.data.response.body.init_point;
       });
   };
@@ -59,7 +58,7 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <>
+                <div className="d-flex flex-column align-items-center">
                   <Link key={e.id} to={`/product/${e.id}`}>
                     <Card
                       id={e.id}
@@ -69,7 +68,6 @@ export default function AllCards() {
                       image={e.image}
                     />
                   </Link>
-
                   <button
                     onClick={() => {
                       handlePayment(e);
@@ -78,7 +76,7 @@ export default function AllCards() {
                     {" "}
                     Buy{" "}
                   </button>
-                </>
+                </div>
               ))
             ) : (
               <h2>No hay nada</h2>
