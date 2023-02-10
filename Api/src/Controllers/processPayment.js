@@ -4,7 +4,7 @@ mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY})
 
 const payment = (req,res) => {
     const {product}= req.body;
-    let preference = {
+    const preference = {
         items : [{
             id : product.id,
             title : product.model,

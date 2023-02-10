@@ -32,6 +32,15 @@ export default function AllCards() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
+  const handlePayment = (e) => {
+    axios
+      .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
+      .then((res) => {
+        console.log(res);
+        window.location.href = res.data.response.body.init_point;
+      });
+  };
+
   return (
     <>
       <Filters />
@@ -49,7 +58,7 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <>
+                <div className="d-flex flex-column align-items-center">
                   <Link key={e.id} to={`/product/${e.id}`}>
                     <Card
                       id={e.id}
@@ -59,9 +68,15 @@ export default function AllCards() {
                       image={e.image}
                     />
                   </Link>
-
-                  <button onClick={() => { axios.post('http://localhost:3001/payment', {"product":{e},"quantity":2}).then((res)=>window.location.href = res.data.response.body.init_point )}}> Buy </button>
-                </>
+                  <button
+                    onClick={() => {
+                      handlePayment(e);
+                    }}
+                  >
+                    {" "}
+                    Buy{" "}
+                  </button>
+                </div>
               ))
             ) : (
               <h2>No hay nada</h2>
