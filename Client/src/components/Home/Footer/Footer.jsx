@@ -4,9 +4,10 @@ import css from "../Footer/footer.css";
 
 export const Footer = () => {
   return (
-      <div className="container-fluid text-center bg-dark d-flex flex-column">
+    <div>
+      <div className="container-fluid text-center bg-dark">
         <p>Online Store Copyright</p>
-        <form className="form-inline d-flex flex-row justify-content-center">
+        <form className="form-inline">
           Get deals:
           {/* <input
             type="email"
@@ -17,5 +18,6 @@ export const Footer = () => {
             <Login/>
         </form>
       </div>
+    </div>
   );
 };
