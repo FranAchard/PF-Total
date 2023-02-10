@@ -1,24 +1,21 @@
 import React from "react";
+import Login from "../../Login/Login";
 import css from "../Footer/footer.css";
 
 export const Footer = () => {
   return (
-    <div>
-      <div className="container-fluid text-center bg-dark">
+      <div className="container-fluid text-center bg-dark d-flex flex-column">
         <p>Online Store Copyright</p>
-        <form className="form-inline">
+        <form className="form-inline d-flex flex-row justify-content-center">
           Get deals:
-          <input
+          {/* <input
             type="email"
             className="form-control"
             size="50"
             placeholder="Email Address"
-          />
-          <button type="button" className="btn btn-dark rounded m-4">
-            Sign Up
-          </button>
+          /> */}
+            <Login/>
         </form>
       </div>
-    </div>
   );
 };
