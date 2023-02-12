@@ -37,7 +37,7 @@ export const Cart = () =>{
         <div >
             <h3>Cart</h3>
             <article className="box ">
-                <button onClick={clearCart} className='btn-clear-all'>Clear</button>
+                <button onClick={clearCart} className='btn-clear-all'>Clear Cart</button>
                 { cart.length > 0 ? (
                 <>
                     { cart.map((item, index)=> 
