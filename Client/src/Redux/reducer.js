@@ -8,12 +8,14 @@ import {
   POST_PRODUCTS,
   ORDER_BY_NAME,
   ORDER_MARCA,
-  ORDER_PRICE
+  ORDER_PRICE,
+  REGISTER_USER
 } from "./actions";
 
 const initialState = {
   product: [],
   users: [],
+  user: {},
   detail: [],
   error: [],
   filteredProducts: [],
@@ -42,6 +44,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         product: action.payload,
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
+        user: action.payload 
       };
 
     case GET_USERS:
