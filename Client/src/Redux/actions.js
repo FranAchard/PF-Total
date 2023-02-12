@@ -8,7 +8,8 @@ export const GET_PRODUCT_BY_QUERY = "GET_PRODUCT_BY_QUERY";
 export const FILTER_BY_USER = "FILTER_BY_USER";
 export const ORDER_PRODUCT_ALF = "ORDER_PRODUCT_ALF";
 export const POST_PRODUCTS = "POST_PRODUCTS";
-export const ORDER_PRICE = "ORDER_PRICE"
+export const ORDER_PRICE = "ORDER_PRICE";
+export const REGISTER_USER = "REGISTER_USER"
 
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_MARCA = "ORDER_MARCA";
@@ -89,6 +90,23 @@ export function getProductQuery(model) {
     }
   };
 }
+export const registerUser = (payload) => {
+  return async (dispatch) => {
+    try {
+      let json = await axios.post(`http://localhost:3001/user/signup`, payload);
+      let user = json.config.data
+      dispatch({
+        type: REGISTER_USER,
+        payload: user
+      })
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: error
+      });
+    }
+  };
+};
 
 export const postProduct = (payload) => {
   return async () => {

@@ -9,15 +9,20 @@ import {
   ORDER_BY_NAME,
   ORDER_MARCA,
   ORDER_PRICE,
+
   ADD_TO_CART,
   REMOVE_ONE_FROM_CART,
   REMOVE_ALL_FROM_CART,
   CLEAR_CART,
+
+  REGISTER_USER
+
 } from "./actions";
 
 const initialState = {
   product: [],
   users: [],
+  user: {},
   detail: [],
   error: [],
   filteredProducts: [],
@@ -47,6 +52,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         product: action.payload,
+      };
+    case REGISTER_USER:
+      return {
+        ...state,
+        user: action.payload 
       };
 
     case GET_USERS:

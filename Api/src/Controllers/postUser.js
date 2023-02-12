@@ -22,11 +22,14 @@ const createUser = async(req, res) => {
     }
     else {
         try{
-            let createUser = await User.create({
-                name,
-                isAdmin,
-                email,
-                password
+            let createUser = await User.findOrCreate({
+                where:{
+                    name,
+                    isAdmin,
+                    email,
+                    password
+                }
+                
             })
     
             res.status(200).send(`User ${name} created successfully`)
