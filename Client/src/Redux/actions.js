@@ -11,9 +11,15 @@ export const POST_PRODUCTS = "POST_PRODUCTS";
 export const ORDER_PRICE = "ORDER_PRICE";
 export const REGISTER_USER = "REGISTER_USER"
 
-/////momentaneo//////
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_MARCA = "ORDER_MARCA";
+
+/////CART///
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_ONE_FROM_CART = "REMOVE_ONE_FROM_CART";
+export const REMOVE_ALL_FROM_CART ="REMOVE_ALL_FROM_CART";
+export const CLEAR_CART = "CLEAR_CART";
+////CART////
 
 export const getAllProducts = () => {
   return async (dispatch) => {
@@ -146,5 +152,33 @@ export function orderPrice(payload){
   return{
     type: ORDER_PRICE,
     payload
+  }
+}
+
+
+/////cART///
+
+export function addToCarts(id) {
+  return {
+    type: ADD_TO_CART,
+    payload: id,
+  };
+}
+export function deleteOneCart(id){
+  return{
+    type: REMOVE_ONE_FROM_CART,
+    payload: id
+  }
+}
+export function deleteAllCarts(id){
+  return{
+    type: REMOVE_ALL_FROM_CART,
+    payload:id
+  }
+}
+
+export function clearCarts(){
+  return{
+    type: CLEAR_CART
   }
 }
