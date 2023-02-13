@@ -23,6 +23,7 @@ export default function Navbar({}){
         e.preventDefault();
         dispatch(getProductQuery(model));  
         setModel("") 
+        console.log(getProductQuery(model))
     }
     
     return(
