@@ -16,7 +16,7 @@ export const Cart = () =>{
         dispatch(getAllProducts());
       }, [dispatch]);
    
-    const sumPrice = (amount, item) => amount + item.price;
+    const sumPrice = (amount, item) => amount + item.price * item.quantity;
     const priceTotal = cart.reduce(sumPrice, 0);
   
 
