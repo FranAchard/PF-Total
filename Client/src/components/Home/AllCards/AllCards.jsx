@@ -41,7 +41,6 @@ export default function AllCards() {
   };
   const handleAddToCart = (id) => {
     dispatch(addToCarts(id));
-   
   };
 
   return (
@@ -62,15 +61,15 @@ export default function AllCards() {
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
                 <div className="d-flex flex-column align-items-center">
-                 
-                  <Card key={e.id} 
-                      id= {e.id}
-                      handleAddToCart={handleAddToCart} 
-                      image={e.image}
-                      price={e.price} 
-                      model ={e.model}
-                    />
-                
+                  <Card
+                    key={e.id}
+                    id={e.id}
+                    handleAddToCart={handleAddToCart}
+                    image={e.image}
+                    price={e.price}
+                    model={e.model}
+                  />
+
                   <button
                     onClick={() => {
                       handlePayment(e);
