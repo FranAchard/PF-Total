@@ -23,7 +23,7 @@ function Login(){
     }
     const input = {
         name: user.name,
-        isAdmin: true, 
+        isAdmin: false, 
         email: user.email, 
         password: user.googleId
     }

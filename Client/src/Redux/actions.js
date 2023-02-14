@@ -119,6 +119,17 @@ export const postProduct = (payload) => {
   };
 };
 
+export const validateToken = (payload)=>{
+  return async ()=> {
+    try {
+      let json = await axios.post(`http://localhost:3001/user/confirm/${payload.token}`, payload)
+      return json
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 export function filterByUser(payload) {
   return {
     type: FILTER_BY_USER,

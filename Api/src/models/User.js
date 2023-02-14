@@ -15,15 +15,28 @@ const user = sequelize.define("user", {
   },
   isAdmin: {
     type: DataTypes.BOOLEAN,
+    defaultValue : false,
     allowNull: false
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    validate:{
+      isEmail:true
+    }
   },
   password: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  code:{
+    type:DataTypes.STRING,
+    require:true
+  },
+  status:{
+    type:DataTypes.STRING,
+    defaultValue:"UNVERIFIED",
+    require:true,
   }
 });
 
