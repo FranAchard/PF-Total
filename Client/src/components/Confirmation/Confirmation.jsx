@@ -28,7 +28,7 @@ export const Confirmation = () =>{
       {handleToken(payload)}
       {setTimeout(() => {
         history.push("/home")
-      }, 5000)}
+      }, 5001)}
     </div>
     
   )
