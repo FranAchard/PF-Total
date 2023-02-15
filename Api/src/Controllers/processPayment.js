@@ -3,20 +3,22 @@ const mercadopago = require('mercadopago')
 mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY})
 
 const payment = (req,res) => {
-    const {product}= req.body;
+    const products = req.body.items;
     const preference = {
-        items : [{
-            id : product.id,
-            title : product.model,
-            currency_id : 'ARS',
-            picture_url : product.image,
-            description : product.marca +' '+ product.model,
-            category_id : 'cellPhones',
-            quantity: req.body.quantity,
-            unit_price: product.price 
-        }],
+        items : products.map(p => {
+					return {
+						id : p.id,
+						title : p.model,
+						currency_id : 'ARS',
+						picture_url : p.image,
+						description : p.marca +' '+ p.model,
+						category_id : 'cellPhones',
+						quantity : p.quantity,
+						unit_price : p.price
+					}
+				}),
         back_urls : {
-            success : 'http://localhost/3000/home',
+            success : 'http://localhost:3000/payment',
             failure : '',
             pending : '',
         },

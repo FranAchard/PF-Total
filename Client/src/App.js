@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/form/Form";
 import Confirmation from "./components/Confirmation/Confirmation"
+import PaymentReceived from "./PaymentRecieved/PaymentReceived";
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,8 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route path="/product/:id" component={Detail} />
           <Route exact path= "/form" component={Form} />
-          <Route exact paht= "/user/confirm/:token" component={Confirmation}/>
+          <Route exact path= "/user/confirm/:token" component={Confirmation}/>
+          <Route path= "/payment" component={PaymentReceived}/>
         </Switch>
       </BrowserRouter>
     </div>
