@@ -33,9 +33,9 @@ export const Cart = () => {
   const clearCart = () => {
     dispatch(clearCarts());
   };
-	const handlePayment = () => {
+  const handlePayment = () => {
     axios
-      .post("http://localhost:3001/payment", { items:[...cart]})
+      .post("http://localhost:3001/payment", { items: [...cart] })
       .then((res) => {
         console.log(res);
         window.location.href = res.data.response.body.init_point;
@@ -66,12 +66,9 @@ export const Cart = () => {
           <p className="cart-empty">El carrito está vacío</p>
         )}
       </article>
-			<button
-                    onClick={handlePayment}
-                  >
-                    {" "}
-                    Checkout{" "}
-                  </button>
+      <button onClick={handlePayment} className="btn-checkout">
+        Checkout
+      </button>
     </div>
   );
 };
