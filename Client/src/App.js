@@ -6,6 +6,8 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/form/Form";
 import Confirmation from "./components/Confirmation/Confirmation"
 import PaymentReceived from "./PaymentRecieved/PaymentReceived";
+import Login2 from "./components/login2/Login2";
+import Register from "./components/login2/Register";
 function App() {
   return (
     <div className="App">
@@ -13,6 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/login" component={Login2} />
+          <Route exact path="/register" component={Register} />
           <Route path="/product/:id" component={Detail} />
           <Route exact path= "/form" component={Form} />
           <Route exact path= "/user/confirm/:token" component={Confirmation}/>
