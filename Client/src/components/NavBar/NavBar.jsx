@@ -5,6 +5,7 @@ import { getProductQuery } from "../../Redux/actions.js";
 import Cart from "../Cart/Cart.jsx";
 import "./navBar.css";
 import User from "./user.jsx";
+import { Link } from "react-router-dom";
 
 export default function Navbar({}) {
   const dispatch = useDispatch();
@@ -77,6 +78,11 @@ export default function Navbar({}) {
           >
             <Cart />
           </div>
+        </div>
+        <div className="d-flex direction-row">
+          <Link to="/login">
+            <button>Log in</button>
+          </Link>
         </div>
       </div>
     </section>
