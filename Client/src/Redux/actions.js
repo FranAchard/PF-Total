@@ -3,6 +3,7 @@ import axios from "axios";
 export const ERROR = "ERROR";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_USERS = "GET_USERS";
+export const GET_USER_ID = "GET_USER_ID";
 export const GET_PRODUCT_ID = "GET_PRODUCT_ID";
 export const GET_PRODUCT_BY_QUERY = "GET_PRODUCT_BY_QUERY";
 export const FILTER_BY_USER = "FILTER_BY_USER";
@@ -49,6 +50,24 @@ export const getUsers = () => {
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USERS,
+        payload: userArray,
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const getUserByid = (id) => {
+  return async (dispatch) => {
+    try {
+      let response = await axios.get(`http://localhost:3001/user/${id}`);
+      let userArray = response.data.map((objeto) => objeto.name);
+      dispatch({
+        type: GET_USER_ID,
         payload: userArray,
       });
     } catch (error) {
