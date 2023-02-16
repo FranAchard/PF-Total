@@ -5,6 +5,7 @@ import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
+import Comment from "./Comment";
 
 
 
@@ -62,6 +63,7 @@ export const DetailProduct = () => {
           <h3 className="texts"> </h3>
         </div>
       </div>
+      <Comment/>
     </div>
   );
 };
