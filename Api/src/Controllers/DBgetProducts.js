@@ -2,7 +2,6 @@ const product = require("../models/product.js");
 
 const getProductDB = async(req,res)=>{
     const {name} = req.query;
-    console.log(name)
     if(name){
         try {
             const products = await product.findAll();

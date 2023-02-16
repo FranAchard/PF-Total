@@ -46,8 +46,6 @@ const createUser = async(req, res) => {
       }
     };
 		
-		console.log("llego hasta aqui")
-		
     const confirm = async (req, res) => {
       try {
         const { token } = req.body;
