@@ -1,13 +1,28 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { postComments } from "../../Redux/actions";
 
-export const FormComment = (setPostedComments) => {
-  const [comment, setComment] = useState("");
+export const FormComment = () => {
+  const dispatch = useDispatch();
+
+  const [comment, setComment] = useState({
+    text: "",
+    moderated: false,
+    postedBy: "",
+    product: "",
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (comment.length > 0) {
-      //guardar el comentario en la base de datos de este producto y de este usuario
-      console.log(comment);
+    if (comment.text.length > 0) {
+      dispatch(postComments(comment));
+      alert("Success");
+      setComment({
+        text: "",
+        moderated: false,
+        postedBy: "",
+        product: "",
+      });
     } else {
       alert("Add a comment");
     }

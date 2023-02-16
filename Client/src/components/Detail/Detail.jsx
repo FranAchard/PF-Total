@@ -5,7 +5,6 @@ import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
-import CommentFran from "./Comment";
 import NavBar from "../NavBar/NavBar"
 import Comment from "../comment/Comment.jsx"
 
