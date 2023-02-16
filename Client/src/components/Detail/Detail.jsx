@@ -5,8 +5,9 @@ import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
-import Comment from "./Comment";
-import Cart from "../Cart/Cart";
+import CommentFran from "./Comment";
+import NavBar from "../NavBar/NavBar"
+import CommentNico from "../comment/Comment.jsx"
 
 
 
@@ -32,11 +33,11 @@ export const DetailProduct = () => {
 
   return (
     <div key={myProduct.id} className="detailContainer">
+      <NavBar/>
       <Link to="/home">
         <button className="backButton">Back</button>
       </Link>
       <div className="Detail">
-        <Cart/>
         <div className="imageContainer">
           <img src={myProduct.image} alt="product" className="productImage" />
         </div>
@@ -70,7 +71,8 @@ export const DetailProduct = () => {
           <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
-      <Comment/>
+      <CommentFran/>
+      <CommentNico/>
     </div>
   );
 };
