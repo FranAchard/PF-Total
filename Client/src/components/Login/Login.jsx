@@ -15,6 +15,7 @@ function Login(){
 
     useEffect(() => {
         const start = () => {
+            
             gapi.auth2.init({
                 clientId: clientID,
             }).then(() => {
