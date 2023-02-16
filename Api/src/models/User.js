@@ -33,6 +33,9 @@ const user = sequelize.define("user", {
     type:DataTypes.STRING,
     require:true
   },
+  image : {
+    type:DataTypes.STRING
+  },
   status:{
     type:DataTypes.STRING,
     defaultValue:"UNVERIFIED",

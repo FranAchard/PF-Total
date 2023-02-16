@@ -22,7 +22,7 @@ import {
 const initialState = {
   product: [],
   users: [],
-  user: {},
+  user: null,
   detail: [],
   error: [],
   filteredProducts: [],
