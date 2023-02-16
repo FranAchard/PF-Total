@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const sequelize = require("../db");
 
-const Comment = sequelize.define("product", {
+const Comment = sequelize.define("comment", {
 
   text: {
     type: DataTypes.TEXT,
