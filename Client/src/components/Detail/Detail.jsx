@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
 import CommentFran from "./Comment";
 import NavBar from "../NavBar/NavBar"
-import CommentNico from "../comment/Comment.jsx"
+import Comment from "../comment/Comment.jsx"
 
 
 
@@ -71,8 +71,7 @@ export const DetailProduct = () => {
           <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
-      <CommentFran/>
-      <CommentNico/>
+      <Comment/>
     </div>
   );
 };
