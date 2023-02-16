@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductId } from "../../Redux/actions";
+import { addToCarts, getProductId } from "../../Redux/actions";
 import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
 import Comment from "./Comment";
+import Cart from "../Cart/Cart";
 
 
 
@@ -13,7 +14,8 @@ export const DetailProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.detail);
-
+  const [cart, setCart] = useState([]);
+  
   useEffect(() => {
     dispatch(getProductId(id));
   }, [dispatch, id]);
@@ -23,7 +25,10 @@ export const DetailProduct = () => {
   }
 
   const myProduct = product;
-  
+  const handleAddToCart = (id) => {
+    setCart([...cart, id]);
+    dispatch(addToCarts(id));
+  };
 
   return (
     <div key={myProduct.id} className="detailContainer">
@@ -31,6 +36,7 @@ export const DetailProduct = () => {
         <button className="backButton">Back</button>
       </Link>
       <div className="Detail">
+        <Cart/>
         <div className="imageContainer">
           <img src={myProduct.image} alt="product" className="productImage" />
         </div>
@@ -61,6 +67,7 @@ export const DetailProduct = () => {
             Ram: <br /> {myProduct.ram}
           </h3>
           <h3 className="texts"> </h3>
+          <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
       <Comment/>

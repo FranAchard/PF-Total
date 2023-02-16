@@ -30,3 +30,18 @@ body{
 .body {
   background: rgb(255 255 255);
 }
+
+/* media query que maneja el modo oscuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: rgba(41,41,41,1) !important;
+  }
+
+  .card {
+    background: rgba(18,18,18,1) !important;
+  }
+
+  .texts {
+    color: white;
+  }
+}

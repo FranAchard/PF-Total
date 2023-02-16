@@ -3,7 +3,7 @@ const product =require('./product')
 const brand =require('./brand')
 const os =require('./os')
 
-user.sync()
+//user.sync()
 
 // product.hasOne(brand)
 // product.hasOne(os)

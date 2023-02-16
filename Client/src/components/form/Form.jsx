@@ -22,7 +22,9 @@ export default function Form() {
     os: "",
     stock: "",
   });
-  const [uploadedImage, setuploadedImage] = useState("");
+  //const [uploadedImage, setuploadedImage] = useState("");
+
+  var uploadedImage = "";
 
   useEffect(() => {
     dispatch(getAllProducts());
@@ -54,14 +56,12 @@ export default function Form() {
       .post("https://api.cloudinary.com/v1_1/dlzp43wz9/image/upload", formData)
       .then((response) => {
         console.log(response);
-        setuploadedImage(response.data.secure_url);
-      })
-      .then((uploadedImage) => {
-        console.log(uploadedImage);
+        uploadedImage = response.data.secure_url;
+        console.log(uploadedImage)
         setInput({
-          ...input,
-          image: uploadedImage,
-        });
+            ...input,
+            image: uploadedImage,
+        })
       });
   };
 
@@ -151,7 +151,7 @@ export default function Form() {
                   />
                   {(input.price > 1200000 || input.price < 5000) && (
                     <div className="error">
-                      The price can't be more than $1.200.000 nor less than
+                      The price can't be greater than $1.200.000 nor smaller than
                       $5000
                     </div>
                   )}
@@ -229,12 +229,12 @@ export default function Form() {
                   <input
                     type="file"
                     name="image"
-                    value={input.image}
+                    value={uploadedImage}
                     onChange={uploadImage}
                   />
                 </div>
                 <div>
-                  <img src={uploadedImage} alt="" width={"100px"} />
+                  <img src={input.image} alt="" width={"100px"} />
                   Preview
                 </div>
                 <button id="bt" className="button" onClick={handleSubmit}>
