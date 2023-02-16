@@ -14,7 +14,7 @@ const Login2 = () => {
     event.preventDefault();
     try {
       await axios
-        .post("", {
+        .get("", {
           email: email,
           password: password,
         })

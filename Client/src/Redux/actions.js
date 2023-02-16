@@ -21,6 +21,9 @@ export const REMOVE_ALL_FROM_CART ="REMOVE_ALL_FROM_CART";
 export const CLEAR_CART = "CLEAR_CART";
 ////CART////
 
+export const GET_COMMENTS = "GET_COMMENTS";
+export const POST_COMMENTS = "POST_COMMENTS";
+
 export const getAllProducts = () => {
   return async (dispatch) => {
     try {
@@ -42,7 +45,7 @@ export const getAllProducts = () => {
 export const getUsers = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/user`);
+      let response = await axios.get(`http://localhost:3001/users`);
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USERS,
@@ -193,3 +196,33 @@ export function clearCarts(){
     type: CLEAR_CART
   }
 }
+
+export const getComments = () => {
+  return async (dispatch) => {
+    try {
+      let response = await axios.get(`http://localhost:3001/comment`);
+      dispatch({
+        type: GET_COMMENTS,
+        payload: response.data,
+      }
+      );
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: error,
+      });
+    }
+  };
+};
+
+export const postComments = (payload) => {
+  return async () => {
+    try {
+      let json = await axios.post(`http://localhost:3001/comment`, payload);
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
