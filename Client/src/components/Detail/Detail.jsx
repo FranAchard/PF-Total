@@ -5,6 +5,7 @@ import "./detail.css";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
+import Comment from "./Comment";
 import Cart from "../Cart/Cart";
 
 
@@ -69,6 +70,7 @@ export const DetailProduct = () => {
           <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
+      <Comment/>
     </div>
   );
 };
