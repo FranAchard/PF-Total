@@ -7,7 +7,7 @@ const { getTemplate, sendEmail } = require("../config/mail.config");
 
 const createUser = async(req, res) => {
     try {
-        const { name, email, isAdmin , password } = req.body;
+        const { name, email, isAdmin , password, image } = req.body;
   
         let user = await User.findOne({
           where: {
@@ -24,7 +24,7 @@ const createUser = async(req, res) => {
   
         const code = uuidv4();
   
-        user = new User({ name, email,isAdmin, code, password });
+        user = new User({ name, email,isAdmin, code, password, image });
   
         const token = getToken({ email, code });
   

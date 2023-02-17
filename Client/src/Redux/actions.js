@@ -3,7 +3,9 @@ import axios from "axios";
 export const ERROR = "ERROR";
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
 export const GET_USERS = "GET_USERS";
+export const GET_USER_LOGGED = "GET_USER_LOGGED"
 export const GET_USER_ID = "GET_USER_ID";
+export const GET_USER_BY_EMAIL = "GET_USER_BY_EMAIL"
 export const GET_PRODUCT_ID = "GET_PRODUCT_ID";
 export const GET_PRODUCT_BY_QUERY = "GET_PRODUCT_BY_QUERY";
 export const FILTER_BY_USER = "FILTER_BY_USER";
@@ -129,6 +131,21 @@ export const registerUser = (payload) => {
     }
   };
 };
+
+export const getUserLogged = (payload) => {
+  return async(dispatch) => {
+    try {
+      let response = await axios.get(`http://localhost:3001/user/email/${payload}`)
+      let user = response.data
+      dispatch({
+        type: GET_USER_LOGGED,
+        payload: user
+      })
+    } catch (error) {
+      
+    }
+  }
+}
 
 export const postProduct = (payload) => {
   return async () => {

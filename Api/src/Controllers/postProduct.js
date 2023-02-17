@@ -14,6 +14,7 @@ const addProduct = async (req, res) => {
     condition,
     os,
     stock,
+    postedBy
   } = req.body;
   try {
     let createProduct = await Product.create({
@@ -27,6 +28,7 @@ const addProduct = async (req, res) => {
       camera,
       stock,
       os,
+      postedBy
     });
 
     res.status(200).send("Product created successfully!");

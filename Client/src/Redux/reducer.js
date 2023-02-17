@@ -2,6 +2,8 @@ import {
   ERROR,
   GET_ALL_PRODUCTS,
   GET_USERS,
+  GET_USER_LOGGED,
+  GET_USER_BY_EMAIL,
   GET_PRODUCT_BY_QUERY,
   GET_PRODUCT_ID,
   FILTER_BY_USER,
@@ -22,6 +24,8 @@ const initialState = {
   product: [],
   users: [],
   user: null,
+  userLogged: null,
+  userByEmail: null,
   detail: [],
   error: [],
   filteredProducts: [],
@@ -64,6 +68,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         users: action.payload,
       };
+    case GET_USER_LOGGED:
+      return {
+        ...state,
+        userLogged: action.payload
+      }
 
     case POST_PRODUCTS:
       return {
