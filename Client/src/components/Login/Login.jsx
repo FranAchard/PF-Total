@@ -11,6 +11,7 @@ function Login(){
     const clientID="476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
     
     const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')) || {});
+    console.log(sessionStorage)
 
 
     useEffect(() => {
@@ -26,7 +27,8 @@ function Login(){
                         name: user.name,
                         isAdmin: false, 
                         email: user.email, 
-                        password: user.googleId
+                        password: user.googleId,
+                        image: user.imageUrl
                     }
                     dispatch(registerUser(input))
                 }
@@ -41,17 +43,17 @@ function Login(){
         sessionStorage.setItem('user', JSON.stringify(response.profileObj))
         setUser(response.profileObj);
     }
-    const input = {
-        name: user.name,
-        isAdmin: false, 
-        email: user.email, 
-        password: user.googleId
-    }
-    console.log(input)
+    // const input = {
+    //     name: user.name,
+    //     isAdmin: false, 
+    //     email: user.email, 
+    //     password: user.googleId
+    // }
+    // console.log(input)
 
-    if(input.name){
-        dispatch(registerUser(input))
-    }
+    // if(input.name){
+    //     dispatch(registerUser(input))
+    // }
     
     const onFailure=()=>{
         console.log("Something went wrong")

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Login from "../Login/Login";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
@@ -82,6 +83,9 @@ const Login2 = () => {
               </button>
             </form>
           </div>
+        </div>
+        <div>
+          <Login/>
         </div>
       </div>
       <Link to="/register"><button type="button" class="btn btn-dark">Are you not sign in?</button></Link>

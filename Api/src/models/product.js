@@ -41,6 +41,10 @@ const product = sequelize.define("product", {
     type: DataTypes.INTEGER,
     allowNull: false
   },
+  postedBy: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
 });
 
 module.exports = product;
