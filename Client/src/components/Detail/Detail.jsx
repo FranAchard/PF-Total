@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
 import NavBar from "../NavBar/NavBar"
-import Comment from "../comment/Comment.jsx"
+import { CommentForm } from "../Comment/CommentForm";
+import { Comments } from "../Comment/Comment";
 
 
 
@@ -69,8 +70,10 @@ export const DetailProduct = () => {
           <h3 className="texts"> </h3>
           <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
+      
+        <Comments/>
       </div>
-      <Comment/>
+      <CommentForm productId={id} />
     </div>
   );
 };

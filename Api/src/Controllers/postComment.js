@@ -3,14 +3,18 @@ const router = Router();
 const Comment = require('../models/Comment');
 
 const addComment = async(req, res) =>{
-  const {text, moderated, postedBy, product} = req.body
+  const {text, moderated, postedBy, productId} = req.body;
+
+  if (!productId) {
+    return res.status(400).send("Product ID is required");
+  }
 
   try {
     let commentToAdd = await Comment.create({
       text,
       moderated,
       postedBy,
-      product,
+      product: productId,
       visible : true
     })
     res.status(200).send("Comment submitted successfully!");
