@@ -9,7 +9,8 @@ const createAdmin = () => {
     password : "proyectoFinal",
     email : "vendotelefonos123@gmail.com",
     code : code,
-    status : "VERIFIED"
+    status : "VERIFIED",
+    visible : true,
   })
 };
 

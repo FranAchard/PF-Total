@@ -21,6 +21,10 @@ const Comment = sequelize.define("comment", {
     type : DataTypes.STRING,
     allowNull: false
   },
+  visible: {
+    type : DataTypes.BOOLEAN,
+    allowNull: false
+  }
   // createdAt :{
   //   type : Date.UTC.
   // } 

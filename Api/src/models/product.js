@@ -44,6 +44,10 @@ const product = sequelize.define("product", {
   postedBy: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  visible: {
+    type : DataTypes.BOOLEAN,
+    allowNull: false
   }
 });
 
