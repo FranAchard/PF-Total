@@ -31,14 +31,6 @@ export default function AllCards() {
     dispatch(getAllProducts());
   }, [dispatch]);
 
-  // const handlePayment = (e) => {
-  //   axios
-  //     .post("http://localhost:3001/payment", { product: { ...e }, quantity: 1 })
-  //     .then((res) => {
-  //       console.log(res);
-  //       window.location.href = res.data.response.body.init_point;
-  //     });
-  // };
   const handleAddToCart = (id) => {
     dispatch(addToCarts(id));
   };
@@ -69,15 +61,6 @@ export default function AllCards() {
                     price={e.price}
                     model={e.model}
                   />
-
-                  {/* <button
-                    onClick={() => {
-                      handlePayment(e);
-                    }}
-                  >
-                    {" "}
-                    Buy{" "}
-                  </button> */}
                 </div>
               ))
             ) : (

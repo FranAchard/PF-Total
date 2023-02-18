@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 export const AddNewProduct = () => {
 
   const logged = useSelector((state)=> state.userLogged)
-  console.log(logged)
-  
+
   if (logged){
     return (
       <div className="button-container">
