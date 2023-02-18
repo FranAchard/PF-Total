@@ -28,7 +28,8 @@ const addProduct = async (req, res) => {
       camera,
       stock,
       os,
-      postedBy
+      postedBy, 
+      visible : true
     });
 
     res.status(200).send("Product created successfully!");

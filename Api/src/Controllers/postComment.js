@@ -10,7 +10,8 @@ const addComment = async(req, res) =>{
       text,
       moderated,
       postedBy,
-      product
+      product,
+      visible : true
     })
     res.status(200).send("Comment submitted successfully!");
   } catch (error) {

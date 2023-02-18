@@ -16,6 +16,7 @@ const chargeDB = async () => {
         camera: e.camera,
         os: e.os,
         postedBy: e.postedBy,
+        visible :true
       },
     });
   });

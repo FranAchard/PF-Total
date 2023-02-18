@@ -6,7 +6,8 @@ const getComments = async(req, res) =>{
   try {
     const comments = await Comment.findAll({
       where :{
-        product : product
+        product : product,
+        visible : true
       }
     })
     res.status(200).send(comments)

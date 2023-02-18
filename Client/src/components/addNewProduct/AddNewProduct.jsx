@@ -21,9 +21,7 @@ export const AddNewProduct = () => {
   }else{
     return (
       <div className="button-container">
-        <Link to="form">
           <h3>Register to add a Product</h3>
-        </Link>
       </div>
     );
   }

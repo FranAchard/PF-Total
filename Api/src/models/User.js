@@ -40,6 +40,10 @@ const user = sequelize.define("user", {
     type:DataTypes.STRING,
     defaultValue:"UNVERIFIED",
     require:true,
+  }, 
+  visible: {
+    type : DataTypes.BOOLEAN,
+    allowNull : false
   }
 });
 

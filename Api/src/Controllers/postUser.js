@@ -24,7 +24,7 @@ const createUser = async(req, res) => {
   
         const code = uuidv4();
   
-        user = new User({ name, email,isAdmin, code, password, image });
+        user = new User({ name, email,isAdmin, code, password, image, visible :true });
   
         const token = getToken({ email, code });
   
