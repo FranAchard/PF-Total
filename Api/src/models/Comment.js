@@ -14,11 +14,11 @@ const Comment = sequelize.define("comment", {
     defaultValue : false
   },
   postedBy: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull : false
   },
   product: {
-    type : DataTypes.STRING,
+    type : DataTypes.INTEGER,
     allowNull: false
   },
   visible: {

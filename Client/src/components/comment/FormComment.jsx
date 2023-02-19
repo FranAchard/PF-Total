@@ -1,34 +1,48 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { postComments } from "../../Redux/actions";
 
 export const FormComment = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const user =  useSelector((state) => state.userLogged)
+  const product =  useSelector((state) => state.detail)
 
   const [comment, setComment] = useState({
     text: "",
     moderated: false,
-    postedBy: "",
-    product: "",
+    postedBy: user.id,
+    product: product.id,
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment.text.length > 0) {
+      console.log(comment)
       dispatch(postComments(comment));
       alert("Success");
       setComment({
         text: "",
         moderated: false,
-        postedBy: "",
-        product: "",
+        postedBy: user.id,
+        product: product.id,
       });
+      history.push(`/product/${product.id}`)
     } else {
       alert("Add a comment");
     }
     //validar que haya un comentario y guardarlo en la base de datos
   };
-
+  function handleChange(e) {
+    setComment({
+      ...comment,
+      [e.target.name]: e.target.value,
+      
+    });
+    console.log(comment)
+  }
   const handleComment = (e) => {
     setComment(e.target.value);
   };
@@ -38,14 +52,17 @@ export const FormComment = () => {
       <div className="form-group">
         <h4>Leave a comment</h4>
         <textarea
-          onKeyUp={handleComment}
+          name = "text"
+          // value = {comment.text}
+          onKeyUp={(e) => handleChange(e)}
           cols="30"
           rows="5"
           className="form-control"
+          required
         ></textarea>
       </div>
       <div className="form-group">
-        <button type="submit" id="post" className="btn">
+        <button type="submit" id="post" className="btn" onClick={handleSubmit}>
           Post Comment
         </button>
       </div>

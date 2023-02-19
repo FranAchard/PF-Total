@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCarts, getProductId } from "../../Redux/actions";
 import "./detail.css";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import accounting from 'accounting-js';
 import NavBar from "../NavBar/NavBar"
@@ -10,27 +10,33 @@ import Comment from "../comment/Comment.jsx"
 
 
 
+
 export const DetailProduct = () => {
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.detail);
   const [cart, setCart] = useState([]);
   
   useEffect(() => {
+    // dispatch(getComments(product.id))
     dispatch(getProductId(id));
   }, [dispatch, id]);
+ console.log("este id viene de la variable product en linea 17", product.id)
+  // const allComments = useSelector((state) => state.comments)
 
-  if (!product) {
-    return <div>"LOADING"</div>;
-  }
+  
+  // console.log("soy allcomments", allComments)
 
   const myProduct = product;
   const handleAddToCart = (id) => {
     setCart([...cart, id]);
     dispatch(addToCarts(id));
   };
-
-  return (
+  if (!product) {
+    return <div>"LOADING"</div>;
+  }else{
+    return (
     <div key={myProduct.id} className="detailContainer">
       <NavBar/>
       <Link to="/home">
@@ -73,6 +79,8 @@ export const DetailProduct = () => {
       <Comment/>
     </div>
   );
+  }
+  
 };
 
 export default DetailProduct;

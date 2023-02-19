@@ -147,6 +147,31 @@ export const getUserLogged = (payload) => {
   }
 }
 
+export const getComments = (payload) => {
+  console.log(payload)
+  return async (dispatch) => {
+    let response = await axios.get(`/comment/${payload}`)
+    return dispatch({
+            type: GET_COMMENTS,
+            payload: response.data,
+          })
+        }
+      }
+  
+
+export const postComments = (payload) => {
+  return async () => {
+    try {
+      let json = await axios.post(`/comment`, payload);
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+
+
 export const postProduct = (payload) => {
   return async () => {
     try {
@@ -226,33 +251,4 @@ export function clearCarts(){
     type: CLEAR_CART
   }
 }
-
-export const getComments = () => {
-  return async (dispatch) => {
-    try {
-      let response = await axios.get(`/comment`);
-      dispatch({
-        type: GET_COMMENTS,
-        payload: response.data,
-      }
-      );
-    } catch (error) {
-      dispatch({
-        type: ERROR,
-        payload: error,
-      });
-    }
-  };
-};
-
-export const postComments = (payload) => {
-  return async () => {
-    try {
-      let json = await axios.post(`/comment`, payload);
-      return json;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
 
