@@ -30,7 +30,7 @@ export const POST_COMMENTS = "POST_COMMENTS";
 export const getAllProducts = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/product`);
+      let response = await axios.get(`/product`);
       dispatch({
         type: GET_ALL_PRODUCTS,
         payload: response.data,
@@ -48,7 +48,7 @@ export const getAllProducts = () => {
 export const getUsers = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/users`);
+      let response = await axios.get(`/users`);
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USERS,
@@ -66,7 +66,7 @@ export const getUsers = () => {
 export const getUserByid = (id) => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/user/${id}`);
+      let response = await axios.get(`/user/${id}`);
       let userArray = response.data.map((objeto) => objeto.name);
       dispatch({
         type: GET_USER_ID,
@@ -84,7 +84,7 @@ export const getUserByid = (id) => {
 export function getProductId(id) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`http://localhost:3001/product/${id}`);
+      let json = await axios.get(`/product/${id}`);
       dispatch({
         type: GET_PRODUCT_ID,
         payload: json.data,
@@ -101,7 +101,7 @@ export function getProductId(id) {
 export function getProductQuery(model) {
   return async (dispatch) => {
     try {
-      let json = await axios.get(`http://localhost:3001/product?name=${model}`);
+      let json = await axios.get(`/product?name=${model}`);
       dispatch({
         type: GET_PRODUCT_BY_QUERY,
         payload: json.data,
@@ -117,7 +117,7 @@ export function getProductQuery(model) {
 export const registerUser = (payload) => {
   return async (dispatch) => {
     try {
-      let json = await axios.post(`http://localhost:3001/user/signup`, payload);
+      let json = await axios.post(`/user/signup`, payload);
       let user = json.config.data
       dispatch({
         type: REGISTER_USER,
@@ -135,7 +135,7 @@ export const registerUser = (payload) => {
 export const getUserLogged = (payload) => {
   return async(dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/user/email/${payload}`)
+      let response = await axios.get(`/user/email/${payload}`)
       let user = response.data
       dispatch({
         type: GET_USER_LOGGED,
@@ -150,7 +150,7 @@ export const getUserLogged = (payload) => {
 export const postProduct = (payload) => {
   return async () => {
     try {
-      let json = await axios.post(`http://localhost:3001/product/add`, payload);
+      let json = await axios.post(`/product/add`, payload);
       return json;
     } catch (error) {
       console.log(error);
@@ -161,7 +161,7 @@ export const postProduct = (payload) => {
 export const validateToken = (payload)=>{
   return async ()=> {
     try {
-      let json = await axios.post(`http://localhost:3001/user/confirm/${payload.token}`, payload)
+      let json = await axios.post(`/user/confirm/${payload.token}`, payload)
       return json
     } catch (error) {
       console.log(error)
@@ -176,12 +176,6 @@ export function filterByUser(payload) {
   };
 }
 
-// export const orderProductAlf = (payload) => {
-
-//   return async (dispatch) => {
-    
-//   }
-// };
 
 
 export function orderByName(payload){
@@ -236,7 +230,7 @@ export function clearCarts(){
 export const getComments = () => {
   return async (dispatch) => {
     try {
-      let response = await axios.get(`http://localhost:3001/comment`);
+      let response = await axios.get(`/comment`);
       dispatch({
         type: GET_COMMENTS,
         payload: response.data,
@@ -254,7 +248,7 @@ export const getComments = () => {
 export const postComments = (payload) => {
   return async () => {
     try {
-      let json = await axios.post(`http://localhost:3001/comment`, payload);
+      let json = await axios.post(`/comment`, payload);
       return json;
     } catch (error) {
       console.log(error);

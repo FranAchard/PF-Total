@@ -4,10 +4,9 @@ import invitado from "../../Media/invitado.png";
 
 export const User = () => {
   
-  const user = useSelector((state) => state.user);
-  console.log("este es el usuario guardado en el estado",user)
-  const image = user ? JSON.parse(user).image : null;
-  const name = user ? JSON.parse(user).name :null
+  const user = useSelector((state) => state.userLogged);
+  const image = user ? user.image : null;
+  const name = user ? user.name :null
   return (
     <div>
       <div>

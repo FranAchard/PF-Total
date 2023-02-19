@@ -35,7 +35,7 @@ export const Cart = () => {
   };
   const handlePayment = () => {
     axios
-      .post("http://localhost:3001/payment", { items: [...cart] })
+      .post("/payment", { items: [...cart] })
       .then((res) => {
         console.log(res);
         window.location.href = res.data.response.body.init_point;
