@@ -2,14 +2,16 @@ const Comment = require('../models/Comment');
 
 
 const getComments = async(req, res) =>{
-  const {product} = req.body
+  const id = req.params.id
+  console.log(id, "esto llega por body")
   try {
     const comments = await Comment.findAll({
       where :{
-        product : product,
+        product : id,
         visible : true
       }
     })
+    console.log(comments)
     res.status(200).send(comments)
   } catch (error) {
     console.log(error)

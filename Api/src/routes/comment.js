@@ -7,7 +7,8 @@ const restoreComment = require('../Controllers/restoreComment')
 
 
 router.post('/', postComment);
-router.get('/', getComments);
+// router.get('/', getComments);
+router.get('/:id', getComments);
 router.put('/hide',hideComment);
 router.put('/restore',restoreComment)
 
