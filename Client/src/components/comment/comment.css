@@ -1,0 +1,10 @@
+.user {
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    min-width: 20vw;
+}
+
+.form-control {
+    margin: 0;
+}
