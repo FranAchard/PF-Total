@@ -27,13 +27,13 @@ const Register = () => {
 
   return (
     <div>
-      <div className="container mt-4">
+      <div className="register">
         <div className="card">
-          <h1>Register</h1>
-
+          <h1 className="texts mt-4">Register</h1>
+          <br /><br />
           <form>
-            <div className="form-group">
-              <label>First name</label>
+            <div>
+              <label className="texts">First name</label>
               <input
                 type="text"
                 className="form-control"
@@ -47,7 +47,7 @@ const Register = () => {
             </div>
 
             <div className="form-group">
-              <label>Last name</label>
+              <label className="texts">Last name</label>
               <input
                 type="text"
                 className="form-control"
@@ -61,10 +61,10 @@ const Register = () => {
             </div>
 
             <div className="form-group">
-              <label>email</label>
+              <label className="texts">email</label>
               <input
                 type="email"
-                className="form-control"
+                className="form-control" 
                 id="email"
                 placeholder="Enter Name"
                 value={email}
@@ -75,7 +75,7 @@ const Register = () => {
             </div>
 
             <div className="form-group">
-              <label>password</label>
+              <label className="texts">password</label>
               <input
                 type="password"
                 className="form-control"
@@ -88,7 +88,7 @@ const Register = () => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary mt-4" onClick={save}>
+            <button type="submit" className="btn btn-primary mt-4 texts mb-4" onClick={save}>
               Save
             </button>
           </form>

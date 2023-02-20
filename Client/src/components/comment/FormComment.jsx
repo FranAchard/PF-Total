@@ -50,7 +50,7 @@ export const FormComment = () => {
   return (
     <form id="algin-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <h4 className="texts">Leave a comment</h4>
+        <h2 className="texts">Leave a comment</h2>
         <textarea
           name = "text"
           // value = {comment.text}
@@ -62,7 +62,7 @@ export const FormComment = () => {
         ></textarea>
       </div>
       <div className="form-group">
-        <button type="submit" id="post" className="btn" onClick={handleSubmit}>
+        <button type="submit" id="post" className="back" onClick={handleSubmit}>
           Post Comment
         </button>
       </div>

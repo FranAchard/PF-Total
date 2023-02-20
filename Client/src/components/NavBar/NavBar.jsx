@@ -28,7 +28,7 @@ export default function Navbar({}) {
   return (
     <section className="navbar navbar-expand-lg" id="navbar1">
       <div className="logo-Container">
-        <a href="/">LOGO</a>
+        <a  href="/"> </a>
       </div>
       <div className="searchbar-container">
         <form className="d-lg-flex mb-2 mb-lg-0 mx-auto w-100" id="mobile">

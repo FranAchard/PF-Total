@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Login from "../Login/Login";
+import "./login.css"
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
@@ -42,20 +43,20 @@ const Login2 = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="login-container">
         <div className="row">
           <h2>Login</h2>
           <hr />
         </div>
 
         <div className="row">
-          <div className="col-sm-6">
+          <div className="col-sm-6" style={{ width: "100%" }}>
             <form>
               <div className="form-group">
                 <label>email</label>
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control "
                   id="email"
                   placeholder="Enter Name"
                   value={email}
@@ -78,7 +79,7 @@ const Login2 = () => {
                   }}
                 />
               </div>
-              <button type="submit" className="btn btn-primary" onClick={login}>
+              <button type="submit" className="btn btn-primary m-4" onClick={login}>
                 Login
               </button>
             </form>
