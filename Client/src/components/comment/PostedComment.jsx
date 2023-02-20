@@ -23,7 +23,7 @@ export const PostedComment = ({ name, comment }) => {
           allComments.map((e) => (
             
             <div className="darker mt-4 text-justify user">
-              <h4>{e.text}</h4>
+              <h4 className="texts">{e.text}</h4>
               
               {/* <p>{comment}</p> */}
             </div>

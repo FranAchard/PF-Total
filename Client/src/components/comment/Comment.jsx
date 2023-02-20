@@ -21,7 +21,7 @@ export const Comment = () => {
   ]);
 
   return (
-    <div className="container d-flex flex-row justify-content-center">
+    <div className="d-flex flex-row justify-content-center">
       <div className="row">
         <div className="col-sm-5 col-md-6 col-12 pb-4">
           <h1 className="texts">Comments</h1>
