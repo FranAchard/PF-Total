@@ -20,6 +20,8 @@ export const Comment = () => {
     },
   ]);
 
+  
+
   return (
     <div className="container d-flex flex-row justify-content-center">
       <div className="row">

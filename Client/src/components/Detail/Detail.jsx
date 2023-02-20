@@ -16,6 +16,7 @@ export const DetailProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.detail);
+  
   const [cart, setCart] = useState([]);
   
   useEffect(() => {

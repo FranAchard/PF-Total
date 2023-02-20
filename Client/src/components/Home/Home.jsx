@@ -5,7 +5,7 @@ import AddNewProduct from "../addNewProduct/AddNewProduct"
 import "./home.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Footer } from "./Footer/Footer";
-import { getUserByEmail, getUserLogged } from "../../Redux/actions";
+import {  getUserLogged } from "../../Redux/actions";
 
 
 export const Home = () => {

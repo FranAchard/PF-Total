@@ -27,7 +27,7 @@ export const Confirmation = () =>{
       <h1>Email confirmado</h1>
       {handleToken(payload)}
       {setTimeout(() => {
-        history.push("/home")
+        //history.push("/home")
       }, 5001)}
     </div>
     

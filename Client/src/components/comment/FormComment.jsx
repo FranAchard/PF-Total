@@ -51,7 +51,7 @@ export const FormComment = () => {
     <form id="algin-form" onSubmit={handleSubmit}>
       <div className="form-group">
         <h4 className="texts">Leave a comment</h4>
-        <textarea
+        {user ? <textarea
           name = "text"
           // value = {comment.text}
           onKeyUp={(e) => handleChange(e)}
@@ -60,6 +60,15 @@ export const FormComment = () => {
           className="form-control form-textarea"
           required
         ></textarea>
+        :
+        <textarea
+          name = "text"
+          // value = {comment.text}
+          cols="30"
+          rows="5"
+          className="form-control form-textarea"
+          required
+        >Debes registrarte para poder comentar</textarea>}
       </div>
       <div className="form-group">
         <button type="submit" id="post" className="btn" onClick={handleSubmit}>

@@ -1,13 +1,19 @@
 const express = require ('express')
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
+const path = require('path');
+
+
+
 
 dotenv.config()
 
 const indexRouter = require('./routes/index');
 const cors = require('cors');
 const app = express();
+
+
 
 app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
