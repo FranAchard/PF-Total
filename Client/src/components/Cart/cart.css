@@ -9,8 +9,8 @@
 }
 .container-cart-products {
   position: absolute;
-  top: 50px;
-  right: 0;
+  top: 9rem;
+  right: -20;
   height: auto;
 
   background-color: #fff;

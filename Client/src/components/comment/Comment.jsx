@@ -24,7 +24,7 @@ export const Comment = () => {
     <div className="container d-flex flex-row justify-content-center">
       <div className="row">
         <div className="col-sm-5 col-md-6 col-12 pb-4">
-          <h1>Comments</h1>
+          <h1 className="texts">Comments</h1>
           {postedComments.length > 0 ? (
             postedComments.map((e) => (
               <div key={e.id} className="d-flex flex-column align-items-center">
@@ -32,7 +32,7 @@ export const Comment = () => {
               </div>
             ))
           ) : (
-            <h2>No hay comentarios</h2>
+            <h2 className="texts">No hay comentarios</h2>
           )}
         </div>
       </div>

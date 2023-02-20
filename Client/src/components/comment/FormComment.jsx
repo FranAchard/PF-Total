@@ -50,14 +50,14 @@ export const FormComment = () => {
   return (
     <form id="algin-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <h4>Leave a comment</h4>
+        <h4 className="texts">Leave a comment</h4>
         <textarea
           name = "text"
           // value = {comment.text}
           onKeyUp={(e) => handleChange(e)}
           cols="30"
           rows="5"
-          className="form-control"
+          className="form-control form-textarea"
           required
         ></textarea>
       </div>
