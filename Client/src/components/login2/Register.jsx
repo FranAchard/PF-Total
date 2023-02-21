@@ -89,7 +89,7 @@ const Register = () => {
             </div>
 
             <button type="submit" className="btn btn-primary mt-4 texts mb-4" onClick={save}>
-              Save
+              Register
             </button>
           </form>
         </div>
