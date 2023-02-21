@@ -3,10 +3,14 @@ import { gapi } from "gapi-script";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../../Redux/actions";
+import { useHistory } from "react-router-dom";
+
+import "./Login.css"
+
 
 function Login() {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const clientID =
     "476059488838-mdd84pqo9vvfmrqabsvqqm0cp7usitn0.apps.googleusercontent.com";
 
@@ -43,6 +47,7 @@ function Login() {
     console.log(response);
     sessionStorage.setItem("user", JSON.stringify(response.profileObj));
     setUser(response.profileObj);
+    history.push("/home")
   };
   const onFailure = () => {
     console.log("Something went wrong");
@@ -57,7 +62,7 @@ function Login() {
         cookiePolicy={"single_host_policy"}
       />
       <div className={user ? "profile" : "hidden"}>
-        <img src={user.imageUrl} alt="" width={"50px"} />
+        <img className="profileImg"src={user.imageUrl} alt="" width={"50px"} />
         <h3>{user.name}</h3>
       </div>
     </div>
