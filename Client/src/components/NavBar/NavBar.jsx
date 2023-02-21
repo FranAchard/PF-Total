@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getProductQuery } from "../../Redux/actions.js";
 import Cart from "../Cart/Cart.jsx";
 import "./navBar.css";
@@ -10,9 +10,8 @@ import { Link } from "react-router-dom";
 export default function Navbar({}) {
   const dispatch = useDispatch();
   const [model, setModel] = useState("");
-
+  const user =  useSelector((state) => state.userLogged);
   const [active, setActive] = useState(false);
-
   function handleInputModel(e) {
     e.preventDefault();
     setModel(e.target.value);
@@ -71,9 +70,12 @@ export default function Navbar({}) {
           <Cart />
         </div>
         <div>
+          {!user ?
           <Link to="/login">
             <button>Log in</button>
           </Link>
+          :
+          <button className="btnClose">Log out</button>}
         </div>
       </div>
     </section>

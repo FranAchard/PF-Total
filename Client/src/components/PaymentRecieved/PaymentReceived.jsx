@@ -10,7 +10,7 @@ import { Link, useHistory } from "react-router-dom";
     <div>
       <h1>Tu pago se ha acreditado correctamente</h1>
       {setTimeout(() => {
-        history.push("/home")
+        //history.push("/home")
       }, 5000)}
     </div>
     

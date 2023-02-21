@@ -315,7 +315,11 @@
   width: 10rem;
   border-radius: 0.2rem !important;
 }
-
+.btnClose {
+  color: whitesmoke;
+  background-color: rgb(210, 21, 21);
+  padding: auto;
+}
 .btn-primary {
   --bs-btn-hover-bg: var(--denim-blue);
 }

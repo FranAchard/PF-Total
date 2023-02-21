@@ -2,9 +2,10 @@ import { useState } from "react";
 import "./comment.css";
 import { FormComment } from "./FormComment";
 import { PostedComment } from "./PostedComment";
+import { useSelector } from "react-redux";
 
 export const Comment = () => {
-
+  const user =  useSelector((state) => state.userLogged);
   //simulacion de los comentarios traidos de la base de datos
   //llenar este hook con una consulta a la base
   const [postedComments, setPostedComments] = useState([
@@ -19,6 +20,8 @@ export const Comment = () => {
       comment: "Soy otro comentario pero mas laaaaaaargo",
     },
   ]);
+
+  
 
   return (
     <div className="d-flex flex-row justify-content-center">
@@ -39,7 +42,9 @@ export const Comment = () => {
 
 
       <div className="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 mb-4 user">
-        <FormComment />
+        {user ? <FormComment />
+        :
+        <h2>Debes iniciar sesión para poder comentar</h2>}
       </div>
     </div>
   );
