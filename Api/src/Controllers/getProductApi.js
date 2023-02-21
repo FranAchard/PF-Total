@@ -120,6 +120,7 @@ const getProducts = async () => {
     let img = e.thumbnail;
     let identfier = img.slice(28, 56);
     let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp";
+    let stock = e.available_quantity === 1 ? Math.floor(Math.random * 100) : e.available_quantity
 
     return {
       color: colors[Math.ceil(Math.random() * 5)],
@@ -143,6 +144,7 @@ const getProducts = async () => {
     let img = e.thumbnail;
     let identfier = img.slice(28, 56);
     let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp";
+    let stock = e.available_quantity === 1 ? Math.floor(Math.random * 100) : e.available_quantity
 
     return {
       model: e.title,
@@ -166,6 +168,7 @@ const getProducts = async () => {
     let img = e.thumbnail;
     let identfier = img.slice(28, 56);
     let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp";
+    let stock = e.available_quantity === 1 ? Math.floor(Math.random * 100) : e.available_quantity
 
     return {
       model: e.title,
@@ -189,6 +192,7 @@ const getProducts = async () => {
     let img = e.thumbnail;
     let identfier = img.slice(28, 56);
     let image = "https://http2.mlstatic.com/D_NQ_NP_" + identfier + "-O.webp";
+    let stock = e.available_quantity === 1 ? Math.floor(Math.random * 100) : e.available_quantity
 
     return {
       model: e.title,

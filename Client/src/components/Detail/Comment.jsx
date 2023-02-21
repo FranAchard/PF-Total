@@ -43,7 +43,7 @@ function Comment() {
               className="input-com"
               placeholder="Enter your comment please ...."
             />
-            <div class="btn-comment">
+            <div className="btn-comment">
               <button className="btn" onClick={nComentarios}>
                 Comment
               </button>
