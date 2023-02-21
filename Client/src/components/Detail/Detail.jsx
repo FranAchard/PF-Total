@@ -73,6 +73,10 @@ export const DetailProduct = () => {
             {" "}
             Ram: <br /> {myProduct.ram}
           </h3>
+          <h3 className="texts">
+            {" "}
+            Stock: <br /> {myProduct.stock}
+          </h3>
           <h3 className="texts"> </h3>
           <button className="back" onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
