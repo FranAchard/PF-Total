@@ -9,6 +9,7 @@ import PaymentReceived from "./PaymentRecieved/PaymentReceived";
 import Login2 from "./components/login2/Login2";
 import Register from "./components/login2/Register";
 import Admin from "./components/Admin/Admin";
+import { UserProfile } from "./components/dashboard/UserProfile"; 
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/login" component={Login2} />
           <Route exact path="/register" component={Register} />
           <Route exact path= "/admin" component={Admin}/>
+          <Route exact path="/userProfile" component={UserProfile} />
           <Route path="/product/:id" component={Detail} />
           <Route exact path= "/form" component={Form} />
           <Route exact path= "/user/confirm/:token" component={Confirmation}/>
