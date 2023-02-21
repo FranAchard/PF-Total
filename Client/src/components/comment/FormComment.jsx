@@ -71,7 +71,7 @@ export const FormComment = () => {
         >Debes registrarte para poder comentar</textarea>}
       </div>
       <div className="form-group">
-        <button type="submit" id="post" className="btn" onClick={handleSubmit}>
+        <button type="submit" id="post" className="back" onClick={handleSubmit}>
           Post Comment
         </button>
       </div>

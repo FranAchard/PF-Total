@@ -2,12 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -24,11 +18,15 @@ code {
 }
 
 body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-family: "Inter", sans-serif !important;
+  background-color: #ebebeb !important;
 }
 
-.body {
-  background: rgb(255 255 255);
+a {
+  text-decoration: none !important;
 }
 
 /* media query que maneja el modo oscuro */
@@ -37,7 +35,7 @@ body {
     background: rgba(41, 41, 41, 1) !important;
   }
 
-  .card {
+  .card, .Detail {
     background: rgba(18, 18, 18, 1) !important;
   }
 
@@ -54,10 +52,14 @@ body {
   }
 
   .user {
-    border: 2px solid white !important;
+    background-color: rgba(18, 18, 18, 1) !important;
   }
 
   .form-textarea {
     background-color: white !important;
+  }
+
+  .button-container {
+    color: white !important;
   }
 }
