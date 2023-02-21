@@ -9,16 +9,16 @@ export const Comment = () => {
   //simulacion de los comentarios traidos de la base de datos
   //llenar este hook con una consulta a la base
   const [postedComments, setPostedComments] = useState([
-    {
-      id: 1,
-      name: "Pedro",
-      comment: "Soy un comentario",
-    },
-    {
-      id: 2,
-      name: "Ellie",
-      comment: "Soy otro comentario pero mas laaaaaaargo",
-    },
+    // {
+    //   id: 1,
+    //   name: "Pedro",
+    //   comment: "Soy un comentario",
+    // },
+    // {
+    //   id: 2,
+    //   name: "Ellie",
+    //   comment: "Soy otro comentario pero mas laaaaaaargo",
+    // },
   ]);
 
   
