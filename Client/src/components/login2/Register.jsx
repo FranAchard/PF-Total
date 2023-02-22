@@ -1,25 +1,30 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState } from "react"; 
+
 
 const Register = () => {
+  const history = useHistory()
   const [fname, setFName] = useState("");
   const [lname, setLName] = useState("");
-
+  console.log(fname)
   const [email, setEmail] = useState("");
+  console.log(email)
   const [password, setPassword] = useState("");
+  console.log(password)
 
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("", {
-        firstname: fname,
-        lastname: lname,
+      await axios.post("/user/signup", {
+        name: fname+" "+lname ,
+        isAdmin: false,
         email: email,
         password: password,
       });
       alert(" Registation Successfully");
+      history.push('/login')
     } catch (err) {
       alert(err);
     }

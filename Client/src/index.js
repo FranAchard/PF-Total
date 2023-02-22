@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -15,17 +15,32 @@ axios.defaults.baseURL = `http://localhost:3001`
 //Deploy
 //axios.defaults.baseURL = 'https://backpf-production-c9e5.up.railway.app/'
 
-ReactDOM.render(
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//     <Provider store={store}>
+//       <PersistGate loading={null} persistor={persist}>
+//         <App />
+//       </PersistGate>
+//     </Provider>
+//     </BrowserRouter>
+//   </React.StrictMode>,
+//   document.getElementById("root")
+// );
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+ 
   <React.StrictMode>
-    <BrowserRouter>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persist}>
-        <App />
-      </PersistGate>
-    </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  <BrowserRouter>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persist}>
+      <App />
+    </PersistGate>
+  </Provider>
+  </BrowserRouter>
+</React.StrictMode>
+
 );
 
 

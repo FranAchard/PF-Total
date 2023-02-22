@@ -1,4 +1,6 @@
 import "./App.css";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 import Home from "./components/Home/Home";
@@ -9,7 +11,41 @@ import PaymentReceived from "./PaymentRecieved/PaymentReceived";
 import Login2 from "./components/login2/Login2";
 import Register from "./components/login2/Register";
 import Admin from "./components/Admin/Admin";
+import Products from "./components/Admin/products";
+import Stock from "./components/Admin/StockTable";
+import UsersTable from "./components/Admin/users";
+import Comments from "./components/Admin/comments";
+import ProductsDash from "./components/Admin/ProductDash";
+import {
+  getAllProducts,
+  getUsers,
+  getComments,
+  getLowStockProducts,
+} from "./Redux/actions";
+
+
+
+
+
 function App() {
+
+  
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getLowStockProducts(1, 10));
+    dispatch(getAllProducts());
+    dispatch(getComments());
+    dispatch(getUsers());
+  }, [dispatch]);
+  
+  const products = useSelector((state) => state.product);
+  const comments = useSelector((state) => state.comments);
+  const users = useSelector((state) => state.users);
+  const lowStock = useSelector((state) => state.lowStock);
+
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -19,6 +55,10 @@ function App() {
           <Route exact path="/login" component={Login2} />
           <Route exact path="/register" component={Register} />
           <Route exact path= "/admin" component={Admin}/>
+          <Route exact path= "/productsTable" component={ProductsDash}/>
+          {/* <Route exact path= "/stockTable" component={Stock(lowStock)}/> */}
+          {/* <Route exact path= "/users" component={UsersTable(users)}/> */}
+          {/* <Route exact path= "/comments" component={Comments(comments)}/> */}
           <Route path="/product/:id" component={Detail} />
           <Route exact path= "/form" component={Form} />
           <Route exact path= "/user/confirm/:token" component={Confirmation}/>
