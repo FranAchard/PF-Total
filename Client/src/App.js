@@ -11,22 +11,6 @@ import PaymentReceived from "./PaymentRecieved/PaymentReceived";
 import Login2 from "./components/login2/Login2";
 import Register from "./components/login2/Register";
 import Admin from "./components/Admin/Admin";
-import Products from "./components/Admin/products";
-import Stock from "./components/Admin/StockTable";
-import UsersTable from "./components/Admin/users";
-import Comments from "./components/Admin/comments";
-import ProductsDash from "./components/Admin/ProductDash";
-import {
-  getAllProducts,
-  getUsers,
-  getComments,
-  getLowStockProducts,
-} from "./Redux/actions";
-
-
-
-
-
 function App() {
 
   
@@ -55,10 +39,6 @@ function App() {
           <Route exact path="/login" component={Login2} />
           <Route exact path="/register" component={Register} />
           <Route exact path= "/admin" component={Admin}/>
-          <Route exact path= "/productsTable" component={ProductsDash}/>
-          {/* <Route exact path= "/stockTable" component={Stock(lowStock)}/> */}
-          {/* <Route exact path= "/users" component={UsersTable(users)}/> */}
-          {/* <Route exact path= "/comments" component={Comments(comments)}/> */}
           <Route path="/product/:id" component={Detail} />
           <Route exact path= "/form" component={Form} />
           <Route exact path= "/user/confirm/:token" component={Confirmation}/>
