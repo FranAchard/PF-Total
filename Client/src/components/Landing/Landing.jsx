@@ -9,7 +9,7 @@ function Landing() {
     <header>
       <div className="container">
         <div className="overlay">
-          <video autoplay="autoplay" muted="muted" loop="loop">
+          <video autoplay="autoPlay" muted="muted" loop="loop">
             <source src={video} type="video/mp4" />
           </video>
 

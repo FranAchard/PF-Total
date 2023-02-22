@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useMemo } from "react";
 import { Column, useTable } from "react-table";
+import {CiCircleCheck} from "react-icons/ci";
+import {CiCircleRemove} from "react-icons/ci";
 
-
-export default function Table({ products }) {
+export default function Table({ users }) {
 
   const cols = [
     {
@@ -11,23 +12,24 @@ export default function Table({ products }) {
       accessor: "id",
     },
     {
-      Header: "Model",
-      accessor: "model",
+      Header: "Name",
+      accessor: "name",
     },
     {
-      Header: "Price",
-      accessor: "price"
+      Header: "Email",
+      accessor: "email"
     },
     {
-      Header: "Stock",
-      accessor: "stock",
+      Header: "Visible",
+      accessor: "visible",
+      Cell: ({value}) => value === false ? <div ><CiCircleRemove  /></div> : <div ><CiCircleCheck  /></div>
     },
   ];
 
-  const data = products?.map (e => e.data)
+  const data = useMemo(() => users, [users]);
   const columns = useMemo(() => cols, [cols]);
 
-  const tableInstance = useTable({ columns, data});
+  const tableInstance = useTable({ columns, data: users });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
