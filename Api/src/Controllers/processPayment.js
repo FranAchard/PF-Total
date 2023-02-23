@@ -1,6 +1,6 @@
 const mercadopago = require("mercadopago");
-const product = require("../models/product");
-const Product = require('../models/product')
+const Product = require("../models/product");
+
 
 mercadopago.configure({ access_token: process.env.MERCADOPAGO_KEY });
 
@@ -9,6 +9,19 @@ const payment = async (req, res) => {
   const preference = await {
     items: products.map((p) => {
 
+      const update = async () => {
+        const prod = await Product.findOne({
+        where :{
+          id: p.id
+        }
+      })
+      console.log(prod)
+      const quant = prod.stock - p.quantity
+      prod.stock = quant
+      prod.save()
+      console.log(prod)
+    }
+    update()
       return {
         id: p.id,
         title: p.model,
