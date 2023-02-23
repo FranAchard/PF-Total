@@ -18,19 +18,21 @@ import {
   REGISTER_USER,
   GET_COMMENTS,
   POST_COMMENTS,
+  LOW_STOCK,
 } from "./actions";
 
 const initialState = {
   product: [],
   users: [],
   user: null,
-  userLogged: null,
-  userByEmail: null,
+  userLogged: {},
+  userByEmail: {},
   detail: [],
   error: [],
   filteredProducts: [],
   cart: [],
   comments: [],
+  lowStock : null
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -77,6 +79,11 @@ const rootReducer = (state = initialState, action) => {
     case POST_PRODUCTS:
       return {
         ...state,
+      };
+    case LOW_STOCK:
+      return {
+        ...state,
+        lowStock : action.payload
       };
 
     case ORDER_BY_NAME:

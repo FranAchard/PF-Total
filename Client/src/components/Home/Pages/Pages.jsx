@@ -23,10 +23,9 @@ export default function Pages({
 
   return (
     <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
+      <ul className="pagination justify-content-center">
         <button
-          class="page-item"
-          className="productButton"
+          className="page-item productButton"
           onClick={handleBack}
         >
           Back
@@ -34,9 +33,9 @@ export default function Pages({
         {pageNumber &&
           pageNumber.map((number) => {
             return (
-              <li class="page-item" key={number}>
+              <li className="page-item" key={number}>
                 <a
-                  class="page-link"
+                  className="page-link"
                   id="pagination"
                   onClick={() => paginate(number)}
                 >

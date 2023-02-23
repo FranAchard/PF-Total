@@ -52,16 +52,15 @@ export default function AllCards() {
           <div className="d-flex flex-row flex-wrap justify-content-center">
             {allProducts.length > 0 ? (
               currentProduct.map((e) => (
-                <div className="d-flex flex-column align-items-center">
-                  <Card
-                    key={e.id}
-                    id={e.id}
-                    handleAddToCart={handleAddToCart}
-                    image={e.image}
-                    price={e.price}
-                    model={e.model}
-                  />
-                </div>
+                <Card
+                  key={e.id}
+                  id={e.id}
+                  handleAddToCart={handleAddToCart}
+                  image={e.image}
+                  price={e.price}
+                  model={e.model}
+                  stock={e.stock}
+                />
               ))
             ) : (
               <h2>No hay nada</h2>

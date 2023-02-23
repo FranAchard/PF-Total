@@ -44,7 +44,7 @@ const user = sequelize.define("user", {
   visible: {
     type : DataTypes.BOOLEAN,
     allowNull : false
-  }
+  },
 });
 
 module.exports = user;

@@ -20,7 +20,6 @@ export const FormComment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment.text.length > 0) {
-      console.log(comment)
       dispatch(postComments(comment));
       alert("Success");
       setComment({
@@ -29,7 +28,8 @@ export const FormComment = () => {
         postedBy: user.id,
         product: product.id,
       });
-      history.push(`/product/${product.id}`)
+      setInterval("location.reload()",500)
+      
     } else {
       alert("Add a comment");
     }
@@ -50,19 +50,28 @@ export const FormComment = () => {
   return (
     <form id="algin-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <h4>Leave a comment</h4>
-        <textarea
+        <h4 className="texts">Leave a comment</h4>
+        {user ? <textarea
           name = "text"
           // value = {comment.text}
           onKeyUp={(e) => handleChange(e)}
           cols="30"
           rows="5"
-          className="form-control"
+          className="form-control form-textarea"
           required
         ></textarea>
+        :
+        <textarea
+          name = "text"
+          // value = {comment.text}
+          cols="30"
+          rows="5"
+          className="form-control form-textarea"
+          required
+        >Debes registrarte para poder comentar</textarea>}
       </div>
       <div className="form-group">
-        <button type="submit" id="post" className="btn" onClick={handleSubmit}>
+        <button type="submit" id="post" className="back" onClick={handleSubmit}>
           Post Comment
         </button>
       </div>

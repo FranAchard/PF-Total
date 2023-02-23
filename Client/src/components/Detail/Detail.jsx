@@ -16,13 +16,14 @@ export const DetailProduct = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const product = useSelector((state) => state.detail);
+  
   const [cart, setCart] = useState([]);
   
   useEffect(() => {
     // dispatch(getComments(product.id))
     dispatch(getProductId(id));
   }, [dispatch, id]);
- console.log("este id viene de la variable product en linea 17", product.id)
+ //console.log("este id viene de la variable product en linea 17", product.id)
   // const allComments = useSelector((state) => state.comments)
 
   
@@ -40,7 +41,7 @@ export const DetailProduct = () => {
     <div key={myProduct.id} className="detailContainer">
       <NavBar/>
       <Link to="/home">
-        <button className="backButton">Back</button>
+        <button className="mt-3 back">Back</button>
       </Link>
       <div className="Detail">
         <div className="imageContainer">
@@ -72,10 +73,15 @@ export const DetailProduct = () => {
             {" "}
             Ram: <br /> {myProduct.ram}
           </h3>
+          <h3 className="texts">
+            {" "}
+            Stock: <br /> {myProduct.stock}
+          </h3>
           <h3 className="texts"> </h3>
-          <button onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
+          <button className="back" onClick={()=>handleAddToCart(myProduct.id)}>Add to Cart</button>
         </div>
       </div>
+      <hr />
       <Comment/>
     </div>
   );

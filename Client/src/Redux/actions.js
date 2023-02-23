@@ -13,6 +13,7 @@ export const ORDER_PRODUCT_ALF = "ORDER_PRODUCT_ALF";
 export const POST_PRODUCTS = "POST_PRODUCTS";
 export const ORDER_PRICE = "ORDER_PRICE";
 export const REGISTER_USER = "REGISTER_USER"
+export const LOW_STOCK = "LOW_STOCK"
 
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_MARCA = "ORDER_MARCA";
@@ -49,7 +50,7 @@ export const getUsers = () => {
   return async (dispatch) => {
     try {
       let response = await axios.get(`/users`);
-      let userArray = response.data.map((objeto) => objeto.name);
+      let userArray = response.data
       dispatch({
         type: GET_USERS,
         payload: userArray,
@@ -114,6 +115,22 @@ export function getProductQuery(model) {
     }
   };
 }
+export const getLowStockProducts = (postedBy, limit) => {
+  return async(dispatch) => {
+    try {
+      let json = await axios.get(`/stock/${postedBy}&${limit}`)
+      dispatch({
+        type : LOW_STOCK,
+        payload : json.data
+      })
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: error,
+      });
+    }
+  }
+}
 export const registerUser = (payload) => {
   return async (dispatch) => {
     try {
@@ -131,6 +148,20 @@ export const registerUser = (payload) => {
     }
   };
 };
+export const login2 = (email, password) => {
+  return async (dispatch) => {
+    try {
+        const json =await axios.get(`user/login/${email}&${password}`)
+        let user = json.data
+        dispatch({
+          type: GET_USER_LOGGED,
+          payload: user
+        })
+        }catch (err) {
+      alert(err);
+    }
+  }
+}
 
 export const getUserLogged = (payload) => {
   return async(dispatch) => {
@@ -149,15 +180,25 @@ export const getUserLogged = (payload) => {
 
 export const getComments = (payload) => {
   console.log(payload)
-  return async (dispatch) => {
-    let response = await axios.get(`/comment/${payload}`)
-    return dispatch({
-            type: GET_COMMENTS,
-            payload: response.data,
-          })
-        }
-      }
+  if(payload){
+    return async (dispatch) => {
+      let response = await axios.get(`/comment/${payload}`)
+      return dispatch({
+              type: GET_COMMENTS,
+              payload: response.data,
+            })
+          }
+  }else{
+    return async(dispatch) => {
+      let response = await axios.get('/comment')
+      return dispatch({
+        type: GET_COMMENTS,
+        payload: response.data
+        })
+    }
   
+  }
+}
 
 export const postComments = (payload) => {
   return async () => {
